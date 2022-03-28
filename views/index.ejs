@@ -13,15 +13,7 @@
         
         <body id="page-top">
             <!-- Navigation-->
-            <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-                    <div class="container px-4 px-lg-5">
-                    <img src="assets/img/logoo.png" width="5%">
-                    <a class="navbar-brand" href="index.html">Healthy Food For U</a>
-                    <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse" id="navbarResponsive">
-                    </div>
-                </div>
-            </nav>
+            <%- include("partials/navigation") %>
             
             <!-- Masthead-->
             <header class="masthead">
@@ -35,7 +27,7 @@
                             <p class="text-white-75 font-weight-bold"><strong>간편하게 가입하고, 나만을 위한 추천레시피도 받아볼 수 있어요</p></strong>
                             <a class="btn btn-success btn-xl" href="next">그냥 이용할래요!</a>
                             <a class="btn btn-success btn-xl" href="#contact">로그인하기</a>
-                            <br><strong><a href="#contact"><span style="color:white">회원가입 하기</a></strong></span>
+                            <br><strong><a href="/member/signup"><span style="color:white">회원가입 하기</a></strong></span>
                         </div>
                     </div>
                 </div>
