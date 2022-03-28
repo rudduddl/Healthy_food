@@ -1,7 +1,8 @@
 const { MongoClient, ServerApiVersion, MongoGridFSChunkError } = require('mongodb');
 const bcrypt = require('bcrypt');
 
-const uri = "mongodb+srv://admin:admin@cluster0.fekly.mongodb.net/Cluster0?retryWrites=true&w=majority";
+            
+const uri = "mongodb+srv://admin:admin@cluster0.qpfrt.mongodb.net/Cluster0?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 const db = client.db("mydb");
 
