@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const member = require('./routes/member');
+const receipe = require('./routes/receipe');
 
 
 app.set('port', process.env.PORT || 3000);
@@ -12,7 +13,9 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
+//apply routes
 app.use('/member', member);
+app.use('/receipe', receipe);
 
 
 //홈화면 표시 (index.ejs 렌더링)
