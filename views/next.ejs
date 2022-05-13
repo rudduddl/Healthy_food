@@ -6,26 +6,14 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Health Food For U</title>
-
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />    
-        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />   
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
-        <link href="css/style2.css" rel="stylesheet" /> 
-
+        <%- include("partials/head_next") %>
+       
     </head>
+
     <body id="page-top">
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-            	<div class="container px-4 px-lg-5">
-            	<img src="assets/img/logoo.png" width="5%">
-                <a class="navbar-brand" href="index.html">Healthy Food For U</a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                </div>
-            </div>
-        </nav>
-        
+       
+         <!-- Navigation-->
+            <%- include("partials/navigation") %>
         
         
         <header class="masthead">
@@ -54,56 +42,398 @@
 	                	</colgroup>
 		                <tr>
 		               		<td>	                	
-	                            <a href="#services"><input type="image" src="assets/img/대사.png" width="80%" hight="80%" id="1"> </br>
+	                            <a href="#section1"><input type="image" src="assets/img/대사.png" width="80%" hight="80%" id="1"> </br>
 	                            	<label for="1" style="color:white;">내분비/대사 질환</label></a>                             
 	                        </td>                     
 	                    
 	                    
 	                    	<td>                
-	                            <a href="#services"><img src="assets/img/부인과.png" width="80%" hight="80%" id="2"> </br>         
+	                            <a href="#section2"><img src="assets/img/부인과.png" width="80%" hight="80%" id="2"> </br>         
 	                         	<label for="2" style="color:white;">부인과 질환</label></a>   
 	                        </td> 
 	                        
 	                        <td>                
-	                            <a href="#services"><img src="assets/img/소화.png" width="80%" hight="80%" id="3"> </br> 
+	                            <a href="#section3"><img src="assets/img/소화.png" width="80%" hight="80%" id="3"> </br> 
 	                            <label for="3" style="color:white;">소화계통 질환</label></a>
-	                        </td> 
-	                    
-	                    
+	                        </td> 	                   
 	                    
 	                    	<td>
-	                            <a href="#services"><img src="assets/img/비뇨.png" width="80%" hight="80%" id="4"> </br>                            
+	                            <a href="#section4"><img src="assets/img/비뇨.png" width="80%" hight="80%" id="4"> </br>                            
 	                           <label for="4" style="color:white;">신장/비뇨기 질환</label></a>
-	                        </td> 
-	                    
+	                        </td> 	                    
 	                    
 	                   		<td>                       
-	                            <a href="#services"><img src="assets/img/순환.png" width="80%" hight="80%" id="5"> </br>
-	                            <label for="5" style="color:white;">혈액/순환계통 질환</label></a>
-	                                                                  
+	                            <a href="#section5"><img src="assets/img/순환.png" width="80%" hight="80%" id="5"> </br>
+	                            <label for="5" style="color:white;">혈액/순환계통 질환</label></a>	                                                                  
 	                   		</td> 
 	                    
 	                        <td>
-	                            <a href="#services"><img src="assets/img/호흡.png" width="80%" hight="80%" id="6"> </br>                            
+	                            <a href="#section6"><img src="assets/img/호흡.png" width="80%" hight="80%" id="6"> </br>                            
 	                           <label for="6" style="color:white;">호흡기 질환</label></a>
-	                        </td> 
-	                           
+	                        </td> 	                           
 						</tr>                
                     </table>
-
 	                </div>
 	              </div>
-	                          
                 </div>
-            
         </header>
-    <section class="page-section" id="services">
-            <div class="container px-4 px-lg-5">
-                <h2 class="text-center mt-0"><strong>카테고리</h2></strong>
-                <article>
-                	<center><iframe name="iframe1" src="./one.html" frameborder="0" width="900" height="300"></iframe>
-            </div>
-        </section>
 
+        
+		<div class="category">
+		<section class="page-section" id="section1">          
+			<h2  class="c_title"><strong>내분비/대사 질환</h2></strong>    
+             <hr class="divider" />
+			<table class="tg">
+                <tbody>
+                  <tr>
+                    <td class="tg-za14">[내분비, 영양   및 대사 질환]</th>
+                    <td class="tg-lboi" ><a href="recipe_ex">갑상선기능저하증</th>
+                  </tr>
+                  <tr>
+                    <td class="tg-za14">[내분비, 영양 및 대사 질환]</td>
+                    <td class="tg-lboi">갑상선기능항진증</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-za14">[내분비, 영양 및 대사 질환]</td>
+                    <td class="tg-lboi">갑상선암</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-za14">[내분비, 영양 및 대사 질환]</td>
+                    <td class="tg-lboi">고마그네슘혈증</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-za14">[내분비, 영양 및 대사 질환]</td>
+                    <td class="tg-lboi">고칼슘혈증</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-za14">[내분비, 영양 및 대사 질환]</td>
+                    <td class="tg-lboi">골다공증</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-za14">[내분비, 영양 및 대사 질환]</td>
+                    <td class="tg-lboi">구루병</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-za14">[내분비, 영양 및 대사 질환]</td>
+                    <td class="tg-lboi">당뇨병</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-za14">[내분비, 영양 및 대사 질환]</td>
+                    <td class="tg-lboi">당뇨병성족부병</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-za14">[내분비, 영양 및 대사 질환]</td>
+                    <td class="tg-lboi">당원병/당원축적병</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-za14">[내분비, 영양 및 대사 질환]</td>
+                    <td class="tg-lboi">윌슨병</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-za14">[내분비, 영양 및 대사 질환]</td>
+                    <td class="tg-lboi">임신성 당뇨,당불내증</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-za14">[내분비, 영양 및 대사 질환]</td>
+                    <td class="tg-lboi">저혈당증</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-za14">[내분비, 영양 및 대사 질환]</td>
+                    <td class="tg-lboi">페닐케톤뇨증, PKU</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-za14">[내분비, 영양 및 대사 질환]</td>
+                    <td class="tg-lboi">프로피온산혈증, 프로피온산증,유기산 혈증</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-za14">[내분비, 영양 및 대사 질환]</td>
+                    <td class="tg-lboi">호모시스틴뇨증</td>
+                  </tr>
+                </tbody>
+                </table>
+			</section>
+
+
+
+		<section class="page-section" id="section2">          
+			<h2><strong>부인과 질환</h2></strong>
+             <hr class="divider" />
+
+			<table>
+            <tbody>
+	            <tr>
+	            <td class="tg-lboi">[부인과 질환]</td>
+                <td class="tg-lboi">자궁경부암</td>
+              </tr>
+              <tr>
+                <td class="tg-lboi">[부인과 질환]</td>
+                <td class="tg-lboi">자궁내 성장지연</td>
+              </tr>
+            </tbody>
+            </table>
+			</section>
+
+
+
+		<section class="page-section" id="section3">          
+			<h2><strong>소화계통 질환</h2></strong>
+             <hr class="divider" />
+
+            <table>
+                <tbody>
+                 <tr>
+                    <td class="tg-lboi">[소화계통&nbsp;&nbsp;&nbsp;질환]</td>
+                    <td class="tg-lboi">급성 췌장염</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lboi">[소화계통 질환]</td>
+                    <td class="tg-lboi">단장 증후군</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lboi">[소화계통 질환]</td>
+                    <td class="tg-lboi">담낭암</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lboi">[소화계통 질환]</td>
+                    <td class="tg-lboi">대사증후군</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lboi">[소화계통 질환]</td>
+                    <td class="tg-lboi">대장양성종양</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lboi">[소화계통 질환]</td>
+                    <td class="tg-lboi">덤핑증후군</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lboi">[소화계통 질환]</td>
+                    <td class="tg-lboi">만성 췌장염</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lboi">[소화계통 질환]</td>
+                    <td class="tg-lboi">만성담낭염</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lboi">[소화계통 질환]</td>
+                    <td class="tg-lboi">변비</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lboi">[소화계통 질환]</td>
+                    <td class="tg-lboi">복막염</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lboi">[소화계통 질환]</td>
+                    <td class="tg-lboi">복수(간질환 합병증)</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lboi">[소화계통 질환]</td>
+                    <td class="tg-lboi">셀리악병</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lboi">[소화계통 질환]</td>
+                    <td class="tg-lboi">소화불량</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lboi">[소화계통 질환]</td>
+                    <td class="tg-lboi">식도암</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lboi">[소화계통 질환]</td>
+                    <td class="tg-lboi">식도염</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lboi">[소화계통 질환]</td>
+                    <td class="tg-lboi">식도정맥류,토혈</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lboi">[소화계통 질환]</td>
+                    <td class="tg-lboi">식중독,장염(초기)</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lboi">[소화계통 질환]</td>
+                    <td class="tg-lboi">십이지장궤양</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lboi">[소화계통 질환]</td>
+                    <td class="tg-lboi">알콜성간질환,지방간,간염,간경변</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lboi">[소화계통 질환]</td>
+                    <td class="tg-lboi">위궤양</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lboi">[소화계통 질환]</td>
+                    <td class="tg-lboi">위식도역류질환</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lboi">[소화계통 질환]</td>
+                    <td class="tg-lboi">위암(수술전)</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lboi">[소화계통 질환]</td>
+                    <td class="tg-lboi">위암(수술후)</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lboi">[소화계통 질환]</td>
+                    <td class="tg-lboi">위염(만성 위염, 급성 위장염)</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-za14">[소화계통 질환]</td>
+                    <td class="tg-lboi">장유착,장폐색</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lboi">[소화계통 질환]</td>
+                    <td class="tg-lboi">전이성간암</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lboi">[소화계통 질환]</td>
+                    <td class="tg-lboi">지방간</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lboi">[소화계통 질환]</td>
+                    <td class="tg-lboi">췌장암</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lboi">[소화계통 질환]</td>
+                    <td class="tg-lboi">콜레라</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lboi">[소화계통 질환]</td>
+                    <td class="tg-lboi">크론병(궤양성대장염)</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lboi">[소화계통 질환]</td>
+                    <td class="tg-lboi">항문암</td>
+                  </tr>
+                </tbody>
+                </table>
+			</section>
+         
+
+		<section class="page-section" id="section4">          
+			<h2><strong>신장/비뇨기 질환</h2></strong>
+             <hr class="divider" />
+
+            <table>
+                <tbody>
+                <tr>
+                    <td class="tg-lboi">[비뇨생식계통&nbsp;&nbsp;&nbsp;질환]</th>
+                    <td class="tg-lboi">요로결석</th>
+                  </tr>
+                  <tr>
+                    <td class="tg-lboi">[비뇨생식계통 질환]</td>
+                    <td class="tg-lboi">전립선암</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lboi">[비뇨생식계통 질환]</td>
+                    <td class="tg-lboi">폐경기 및 여성의 갱년기</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lboi">[신장질환]</td>
+                    <td class="tg-lboi">대사성산증(고유기산혈증)</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-za14">[신장질환]</td>
+                    <td class="tg-lboi">저나트륨혈증</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-za14">[신장질환]</td>
+                    <td class="tg-lboi">저마그네슘혈증</td>
+                  </tr>
+                </tbody>
+                </table>
+			</section>
+           
+
+
+
+		<section class="page-section" id="section5">          
+			<h2><strong>혈액/순환계통 질환</h2></strong>
+             <hr class="divider" />
+
+            <table>
+                <tbody>
+                <tr>
+                    <td class="tg-za14">[순환계통&nbsp;&nbsp;&nbsp;질환]</th>
+                    <td class="tg-lboi">고지혈증(이상지질혈증, 고콜레스테롤혈증)</th>
+                  </tr>
+                  <tr>
+                    <td class="tg-za14">[순환계통 질환]</td>
+                    <td class="tg-lboi">고혈압</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-za14">[순환계통 질환]</td>
+                    <td class="tg-lboi">심근경색</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-za14">[순환계통 질환]</td>
+                    <td class="tg-lboi">임신성고혈압</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-za14">[순환계통 질환]</td>
+                    <td class="tg-lboi">저혈압</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-za14">[순환계통 질환]</td>
+                    <td class="tg-lboi">허혈성 심질환(심장병)</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-7zrl">[순환계통 질환]</td>
+                    <td class="tg-cly1">협심증</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-cly1">[혈액 및 조혈기관 질환]</td>
+                    <td class="tg-cly1">급성골수성백혈병</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-cly1">[혈액 및 조혈기관 질환]</td>
+                    <td class="tg-cly1">급성림프모구백혈병</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-cly1">[혈액 및 조혈기관 질환]</td>
+                    <td class="tg-cly1">다발 골수종</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-cly1">[혈액 및 조혈기관 질환]</td>
+                    <td class="tg-cly1">유방암</td>
+                  </tr>
+                </tbody>
+                </table>
+			</section>
+            
+
+
+
+		<section class="page-section" id="section6">          
+			<h2><strong>호흡기 질환</h2></strong>
+              <hr class="divider" />
+
+                <table>
+                <tbody>
+                <tr>
+                    <td class="tg-lboi">[호흡계통&nbsp;&nbsp;&nbsp;질환]</th>
+                    <td class="tg-lboi">만성폐쇄성폐질환</th>
+                    </tr>
+                    <tr>
+                    <td class="tg-lboi">[호흡계통 질환]</td>
+                    <td class="tg-lboi">전이성폐암, 폐암 말기</td>
+                    </tr>
+                    <tr>
+                    <td class="tg-lboi">[호흡계통 질환]</td>
+                    <td class="tg-lboi">천식</td>
+                    </tr>
+                    <tr>
+                    <td class="tg-lboi">[호흡계통 질환]</td>
+                    <td class="tg-lboi">폐렴</td>
+                    </tr>
+                    <tr>
+                    <td class="tg-lboi">[호흡계통 질환]</td>
+                    <td class="tg-lboi">후두암</td>
+                    </tr>
+                </tbody>
+                </table>
+			</section>
+		</div>
+       
     </body>
 </html>
