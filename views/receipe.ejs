@@ -7,14 +7,20 @@
     <title>Document</title>
 </head>
 <body>
-    <h1><%= receipe.RCP_NM %></h1>
-    <ul>
-        <li><%= receipe.MANUAL01 %></li>
-        <li><img src= <%= receipe.MANUAL_IMG01 %> /></li>
-        <li><%= receipe.MANUAL02 %></li>
-        <li><img src= <%= receipe.MANUAL_IMG02 %> /></li>
-        <li><%= receipe.MANUAL03 %></li>
-        <li><img src= <%= receipe.MANUAL_IMG03 %> /></li>
-    </ul>
+    <h1><%= receipeName %></h1>
+    <% for(var i=1; i<19; i++){ %>
+        <% receipe.find(function(element){ %>
+           <% if(element[0] == ("MANUAL"+String(i).padStart(2, '0')) && element[1] != "" ){ %>
+                <%= element[1] %>
+            <% } %>
+        <% }) %>
+        </br>
+        <% receipe.find(function(element){ %>
+            <% if(element[0] == ("MANUAL_IMG"+String(i).padStart(2, '0')) && element[1] != ""){ %>
+                 <img src="<%= element[1] %>">
+             <% } %>
+         <% }) %>
+        </br>
+    <% } %>
 </body>
 </html>

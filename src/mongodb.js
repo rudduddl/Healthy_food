@@ -84,3 +84,14 @@ function getDisease(callback) {
     });
 }
 module.exports.getDisease = getDisease;
+
+function favoriteReciepe(user, receipeName, callback) {
+  db.collection("favoriteReciepe")
+    .insertOne({
+      id: user,
+      receipe: receipeName,
+    })
+    .then(function (result) {
+      callback();
+    });
+}

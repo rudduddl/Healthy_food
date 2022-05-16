@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>    
+    레시피 검색
+    <form method="post">
+        <input type="text" name="name">
+        <input type="submit" value="검색">
+    </form>
+
+    <% if(typeof receipes != 'undefined' && receipes.length > 0){ %>
+        <ol>
+            <% receipes.forEach(function(receipe){ %>
+                <li>
+                    <form action="receipe/how" method="post">
+                        <input type="hidden" name="receipe" value= "<%= JSON.stringify(receipe) %>">
+                        <input type="submit" name="name" value="<%= receipe.RCP_NM %>" >
+                    </form>
+                </li>
+                
+            <% }); %>
+        </ol>
+    <% } else {%>
+        <h1>검색결과 없음</h1>
+    <% } %>
+
+</body>
+</html>
