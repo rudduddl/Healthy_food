@@ -4,6 +4,7 @@ const {
   MongoGridFSChunkError,
 } = require("mongodb");
 const bcrypt = require("bcrypt");
+const { get } = require("express/lib/response");
 
 const uri =
   "mongodb+srv://admin:admin@cluster0.qpfrt.mongodb.net/Cluster0?retryWrites=true&w=majority";
@@ -25,22 +26,22 @@ function connect() {
 function disconnect() {
   client.close();
 }
+module.exports.disconnect = disconnect;
 
 //로그인 로직 구현 (몽고DB에서 찾고자 하는 id를 가진 document를 찾아온 뒤 password 비교)
-function login(id, password, callback) {
-  db.collection("user")
-    .find({ name: id })
-    .toArray()
-    .then(function (items) {
-      bcrypt.compare(password, items[0].userpw, (err, same) => {
-        if (same) {
-          //same == true 비밀번호 맞음
-          callback("success");
-        } else {
-          callback("fail");
-        }
-      });
-    });
+async function login(id, password) {
+  try {
+    const user = await db.collection("user").findOne({ id: id });
+    const same = bcrypt.compareSync(password, user.password);
+    if (same) {
+      return user;
+    } else {
+      return undefined;
+    }
+  } catch (e) {
+    console.log(e);
+    return undefined;
+  }
 }
 
 module.exports.login = login; //다른 .js파일에서 사용할 수 있도록 module.exports
@@ -85,13 +86,36 @@ function getDisease(callback) {
 }
 module.exports.getDisease = getDisease;
 
+function searchReceipe(keyword, callback) {
+  db.collection("receipe")
+    .find({ $text: { $search: keyword } }, { projection: { RCP_NM: 1 } })
+    .toArray()
+    .then(function (item) {
+      callback(item);
+    });
+}
+module.exports.searchReceipe = searchReceipe;
+
+function getReceipe(receipeName, callback) {
+  db.collection("receipe")
+    .findOne({ RCP_NM: receipeName })
+    .then(function (item) {
+      callback(item);
+    });
+}
+module.exports.getReceipe = getReceipe;
+
 function favoriteReciepe(user, receipeName, callback) {
-  db.collection("favoriteReciepe")
+  db.collection("favoriteReceipe")
     .insertOne({
       id: user,
       receipe: receipeName,
     })
     .then(function (result) {
-      callback();
+      callback(true);
+    })
+    .catch(function (err) {
+      callback(false);
     });
 }
+module.exports.favoriteReciepe = favoriteReciepe;

@@ -18,7 +18,6 @@
             <% receipes.forEach(function(receipe){ %>
                 <li>
                     <form action="receipe/how" method="post">
-                        <input type="hidden" name="receipe" value= "<%= JSON.stringify(receipe) %>">
                         <input type="submit" name="name" value="<%= receipe.RCP_NM %>" >
                     </form>
                 </li>

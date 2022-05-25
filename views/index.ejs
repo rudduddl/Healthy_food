@@ -35,53 +35,47 @@
         
             <section class="page-section" id="contact">
                 <div class="container px-4 px-lg-5">
-                    <div class="row gx-4 gx-lg-5 justify-content-center">
-                        <div class="col-lg-8 col-xl-6 text-center">
-                            <h2 class="mt-0">로그인하기</h2>
-                            <hr class="divider" />
-                            <p class="text-muted mb-5"></p>
+                    
+                    <% if(user === undefined ? true : user.authorized === false) { %>
+                        <div class="row gx-4 gx-lg-5 justify-content-center">
+                            <div class="col-lg-8 col-xl-6 text-center">
+                                <h2 class="mt-0">로그인하기</h2>
+                                <hr class="divider" />
+                                <p class="text-muted mb-5"></p>
+                            </div>
                         </div>
-                    </div>
+                    <% } else { %>
+                        <div class="row gx-4 gx-lg-5 justify-content-center">
+                            <div class="col-lg-8 col-xl-6 text-center">
+                                <h2 class="mt-0">안녕하세요 <%= user.name %>님!</h2>
+                                <hr class="divider" />
+                                <p class="text-muted mb-5"></p>
+                            </div>
+                        </div>
+                    <% } %>
+                    
                     <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
                         <div class="col-lg-6">
-    
-    
-                            <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                                <!-- Name input-->
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" id="name" type="text" placeholder="아이디 입력해주세요" data-sb-validations="required" />
-                                    <label for="name">아이디</label>
-                                    <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
-                                </div>
-                                
-                                <!-- Phone number input-->
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" id="phone" type="tel" placeholder="비밀번호 입력" data-sb-validations="required" />
-                                    <label for="phone">비밀번호</label>
-                                    <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
-                                </div>
-                                <!-- Message input-->
-                                
-                                <!-- Submit success message-->
-                                <!---->
-                                <!-- This is what your users will see when the form-->
-                                <!-- has successfully submitted-->
-                                <div class="d-none" id="submitSuccessMessage">
-                                    <div class="text-center mb-3">
-                                        <div class="fw-bolder">Form submission successful!</div>
-                                        To activate this form, sign up at
-                                        <br />
-                                        <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                            <% if(user === undefined ? true : user.authorized === false) { %>
+                                <form action="/member/login" id="contactForm" data-sb-form-api-token="API_TOKEN" method="post">
+                                    <div class="form-floating mb-3">
+                                        <input class="form-control" id="name" type="text" placeholder="아이디 입력해주세요" data-sb-validations="required" name="id"/>
+                                        <label for="name">아이디</label>
+                                        <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
                                     </div>
-                                </div>
-                                <!-- Submit error message-->
-                                <!---->
-                                <!-- This is what your users will see when there is-->
-                                <!-- an error submitting the form-->
-                                <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                                <!-- Submit Button-->
-                                <div class="d-grid"><button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">로그인</button></div>
-                            </form>
+                                    
+                                    <div class="form-floating mb-3">
+                                        <input class="form-control" id="phone" type="tel" placeholder="비밀번호 입력" data-sb-validations="required" name="password"/>
+                                        <label for="phone">비밀번호</label>
+                                        <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                                    </div>
+                                    <div class="d-grid"><button class="btn btn-primary btn-xl" id="submitButton" type="submit">로그인</button></div>
+                                </form>
+                            <% } else { %>
+                                <form action="/member/logout" id="contactForm" data-sb-form-api-token="API_TOKEN" method="post">
+                                    <div class="d-grid"><button class="btn btn-primary btn-xl" id="submitButton" type="submit">로그아웃</button></div>
+                                </form>
+                            <% } %>
                         </div>
                     </div>
        
