@@ -30,11 +30,15 @@ router.post("/how", (req, res) => {
 router.post("/favorite", (req, res) => {
   const receipeName = req.body.name;
 
-  db.favoriteReciepe("asdad", receipeName, function (result) {
+  if (req.session.user === undefined) {
+    res.send({ result: "로그인 후 이용해주세요" });
+    return;
+  }
+  db.favoriteReciepe(req.session.user.id, receipeName, function (result) {
     if (result === true) {
       res.send({ result: "success" });
     } else {
-      res.send({ result: "fail" });
+      res.send({ result: "즐겨찾기 추가 실패" });
     }
   });
 });
