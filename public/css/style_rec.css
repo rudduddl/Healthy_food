@@ -12165,7 +12165,11 @@ li {
     padding: 10px;
 }
 
-body {
+.add {
+    background-color: #77af9c;
+    color: #d7fff1;
+    border:0;
+    outline:0;
 }
 
 legend, .search {
@@ -12239,6 +12243,7 @@ img:not(.logo , .all){
 .recipe {
     margin: 2rem auto;
     text-align:center;
+    padding:2rem;
 }
 
 .title{
@@ -12248,7 +12253,7 @@ img:not(.logo , .all){
 }
 
 #recipe_view {
-    background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../assets/img/re.jpg");
+    background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%),url("../assets/img/vimg.jpg");
 }
 
 .cooking {
