@@ -8,6 +8,7 @@ const disease = require("./routes/disease");
 app.set("port", process.env.PORT || 3000);
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
+
 app.use(express.static(__dirname + "/public"));
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -18,9 +19,18 @@ app.use("/member", member);
 app.use("/receipe", receipe);
 app.use("/disease", disease);
 
+
 //홈화면 표시 (index.ejs 렌더링)
 app.get("/", function (req, res) {
   res.render("index"); //index.ejs 파일 렌더링 (view engine을 ejs로 지정했기 때문에 확장자 생략)
+});
+
+app.get('/recipe_list', function (req, res) {
+    res.render('recipe_list');
+});
+
+app.get('/recipe_view', function (req, res) {
+    res.render('recipe_view');
 });
 
 //서버 실행

@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /*!
 * Start Bootstrap - Creative v7.0.6 (https://startbootstrap.com/theme/creative)
 * Copyright 2013-2022 Start Bootstrap
@@ -10,14 +10,10 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+
 .category {
     text-align: center;
     font-weight: bold;
-    
-   
-}
-.tg {
-    margin: auto;
 }
 
 :root {
@@ -251,7 +247,7 @@ sup {
 
 a {
     color: black;
-    text-decoration-line: none;
+    text-decoration: underline;
 }
 
     a:hover {
@@ -259,7 +255,7 @@ a {
     }
 
     a:not([href]):not([class]), a:not([href]):not([class]):hover {
-        color: inherit;
+        color: black;
         text-decoration: none;
     }
 
@@ -418,8 +414,9 @@ textarea {
 fieldset {
     min-width: 0;
     padding: 0;
-    margin: 0;
+    margin: 50px;
     border: 0;
+    background-color: white;
 }
 
 legend {
@@ -12043,9 +12040,9 @@ hr.divider-light {
 }
 
 header.masthead {
-    padding-top: 10rem;
+    padding-top: 5rem;
     padding-bottom: calc(10rem - 4.5rem);
-    background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../assets/img/next_bg.jpg");
+    background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../assets/img/re.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: scroll;
@@ -12058,9 +12055,9 @@ header.masthead {
 
 @media (min-width: 992px) {
     header.masthead {
-        height: 100vh;
-        min-height: 40rem;
-        padding-top: 4.5rem;
+        height: auto;
+        min-height: 10rem;
+        padding-top: 3rem;
         padding-bottom: 0;
     }
 
@@ -12119,3 +12116,172 @@ header.masthead {
         #portfolio .container-fluid .portfolio-box:hover .portfolio-box-caption, #portfolio .container-sm .portfolio-box:hover .portfolio-box-caption, #portfolio .container-md .portfolio-box:hover .portfolio-box-caption, #portfolio .container-lg .portfolio-box:hover .portfolio-box-caption, #portfolio .container-xl .portfolio-box:hover .portfolio-box-caption, #portfolio .container-xxl .portfolio-box:hover .portfolio-box-caption {
             opacity: 1;
         }
+
+
+.like {
+    width: 100%;
+    text-align: center;
+    
+}
+
+
+li {
+    list-style: none;
+    float: left;
+    margin-right: 20px;
+}
+
+/*.item {
+    margin: 10px;
+    border-style: solid;
+    border-color: lightslategray;
+
+}*/
+
+.grid-image, .result, .caution_list {
+    text-align: center;
+    margin: auto;
+   
+}
+
+.result {
+    /*padding: 2px 100px;*/
+    min-width: 1350px;
+    max-width: 80%;
+}
+
+.header_con {
+    background-color: white;
+  /* margin: auto 100px -50px 100px;*/
+    margin:auto;
+    padding-bottom: 50px;
+    min-width: 1350px;
+    max-width:80%;
+    
+}
+
+.search {
+    background-color: rgb(181,142,125, 0.4);
+    padding: 10px;
+}
+
+body {
+}
+
+legend, .search {
+    text-align: center;
+}
+
+li:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+
+.layout {
+    max-width: 100%;
+    margin: 0;
+    
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1em;
+}
+
+
+
+article {
+    flex-basis: 680px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    background-color: #ffe0e0;
+
+}
+
+.flexbox {
+    display: flex;
+    flex-wrap: wrap;
+    margin:auto;
+    gap:1em;
+    background-color: white;
+    flex-grow: 0;
+    flex-shrink: 0;
+    
+}
+
+
+.item {
+    height:  15em;
+    flex-basis: 15em;
+    flex-shrink: 0;
+    flex-grow: 0;
+    
+    margin: 10px;
+   
+}
+
+img:not(.logo , .all){
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+#page-top {
+    margin-top: 5rem;
+}
+
+.all {
+    min-width: 1350px;
+    max-width: 80%;
+    margin: auto;
+    margin-top:5rem;
+    background-color:white;
+    padding-bottom:2rem;
+}
+.recipe {
+    margin: 2rem auto;
+    text-align:center;
+}
+
+.title{
+    width:30%;
+    height:30%;
+    margin: 1rem auto;
+}
+
+#recipe_view {
+    background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../assets/img/re.jpg");
+}
+
+.cooking {
+    text-align: left;
+    width: 40%;
+    height: 40%;
+    margin:auto;
+}
+
+.num {
+    font-size: .8em;
+    width: 2em;
+    height:2em;
+    border-radius: 3em;
+    padding: .1em .2em;
+    line-height: 1.25em;
+    border: 1px solid #fff;
+    display: inline-block;
+    text-align: center;
+    background-color:aquamarine;
+}
+
+.Material {
+    font-size: 1.2em;
+    width: 20%;
+    height: 2em;
+    /*padding: .2em .2em;*/
+    padding: 0.5rem;
+    line-height: 1.25em;
+    border: 1px solid #fff;
+    display: inline-block;
+    text-align: center;
+    background-color: aquamarine;
+}
