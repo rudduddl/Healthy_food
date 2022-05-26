@@ -23,17 +23,17 @@ var mobile = document.querySelector("#mobile");
 var error = document.querySelectorAll(".error_next_box");
 
 let signupBools = {
-  "id": false,
-  "pw1": false,
-  "pw2": false,
-  "userName": false,
-  "yy": false,
-  "mm": false,
-  "dd": false,
-  "date": false,
-  "gender": false,
-  "email": false,
-  "mobile" : false,
+  id: false,
+  pw1: false,
+  pw2: false,
+  userName: false,
+  yy: false,
+  mm: false,
+  dd: false,
+  date: false,
+  gender: false,
+  email: false,
+  mobile: false,
 };
 
 let signupBtn = document.querySelector("#btnJoin");
@@ -64,17 +64,15 @@ signupBtn.addEventListener("click", canSignup);
 /*콜백 함수*/
 
 function canSignup() {
-  let cnt = 0;
+  let isCanSignup = false;
   for (let key in signupBools) {
-    if (key != 'email' && signupBools[key] == true) {
-      cnt += 1;
+    if (key != "email" && signupBools[key] === false) {
+      isCanSignup = true;
+      break;
     }
   }
-  if (cnt == Object.keys(signupBools).length - 1) {
-    console.log("횐가입 가능");
-  } else {
-    console.log("조건 미달");
-  }
+  console.log(`canSignup ${!isCanSignup}`);
+  signupBtn.disabled = isCanSignup;
 }
 
 function checkId() {
@@ -94,6 +92,7 @@ function checkId() {
     error[0].style.display = "block";
     signupBools["id"] = true;
   }
+  canSignup();
 }
 
 function checkPw() {
@@ -109,7 +108,6 @@ function checkPw() {
     error[1].style.display = "block";
     signupBools["pw1"] = false;
     pwMsg.style.display = "block";
-    
   } else {
     error[1].style.display = "none";
     pwMsg.innerHTML = "안전";
@@ -117,6 +115,7 @@ function checkPw() {
     pwMsg.style.color = "#03c75a";
     signupBools["pw1"] = true;
   }
+  canSignup();
 }
 
 function comparePw() {
@@ -134,6 +133,7 @@ function comparePw() {
     error[2].style.display = "block";
     signupBools["pw2"] = false;
   }
+  canSignup();
 }
 
 function checkName() {
@@ -154,6 +154,7 @@ function checkName() {
     error[3].style.display = "none";
     signupBools["userName"] = true;
   }
+  canSignup();
 }
 
 function isBirthCompleted() {
@@ -187,6 +188,7 @@ function isBirthCompleted() {
       isBirthRight();
     }
   }
+  canSignup();
 }
 
 function isBirthRight() {
@@ -231,6 +233,7 @@ function isEmailCorrect() {
     error[6].style.display = "none";
     signupBools["email"] = true;
   }
+  canSignup();
 }
 
 function checkPhoneNum() {
@@ -248,4 +251,5 @@ function checkPhoneNum() {
     error[7].style.display = "none";
     signupBools["mobile"] = true;
   }
+  canSignup();
 }

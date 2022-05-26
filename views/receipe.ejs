@@ -5,21 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <script type="text/javascript">
+        window.onload = function() {
+            var httpRequest;
+
+            document.getElementById("favoriteBtn").addEventListener('click', () => {
+                var reqJson = new Object();
+                reqJson.name = "<%= receipe.RCP_NM %>";
+                httpRequest = new XMLHttpRequest();
+
+                httpRequest.onreadystatechange = () => {
+                    if (httpRequest.readyState === XMLHttpRequest.DONE) {
+                          if (httpRequest.status === 200) {
+                            var result = httpRequest.response.result;
+                            console.log(result);
+                            if(result==='success'){
+                                alert('즐겨찾기에 추가됨');
+                            }
+                            else{
+                                alert(result);
+                            }
+                          } else {
+                            alert('request에 뭔가 문제가 있어요.');
+                          }
+                    }
+                };
+                
+                httpRequest.open('POST', '/receipe/favorite', true);
+                httpRequest.responseType = "json";
+                httpRequest.setRequestHeader('Content-Type', 'application/json');
+                httpRequest.send(JSON.stringify(reqJson));                
+            });
+        }
+        </script>
 </head>
 <body>
-    <h1><%= receipeName %></h1>
+    <div>
+        <h1 style="display: inline"><%= receipe.RCP_NM %></h1>
+        <button id="favoriteBtn">즐겨찾기</button>
+    </div>
     <% for(var i=1; i<19; i++){ %>
-        <% receipe.find(function(element){ %>
-           <% if(element[0] == ("MANUAL"+String(i).padStart(2, '0')) && element[1] != "" ){ %>
-                <%= element[1] %>
-            <% } %>
-        <% }) %>
+        <% if(receipe["MANUAL"+String(i).padStart(2, '0')].length > 0){ %>
+            <%= receipe["MANUAL"+String(i).padStart(2, '0')] %>
+        <% } %>
         </br>
-        <% receipe.find(function(element){ %>
-            <% if(element[0] == ("MANUAL_IMG"+String(i).padStart(2, '0')) && element[1] != ""){ %>
-                 <img src="<%= element[1] %>">
-             <% } %>
-         <% }) %>
+            <% if(receipe["MANUAL_IMG"+String(i).padStart(2, '0')].length > 0){ %>
+                 <img src="<%= receipe['MANUAL_IMG'+String(i).padStart(2, '0')] %>">
+            <% } %>
         </br>
     <% } %>
 </body>
