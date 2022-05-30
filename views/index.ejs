@@ -44,7 +44,10 @@
                                 <p class="text-muted mb-5"></p>
                             </div>
                         </div>
-                    <% } else { %>
+                    <% } else {
+                                   
+                    %>
+                        
                         <div class="row gx-4 gx-lg-5 justify-content-center">
                             <div class="col-lg-8 col-xl-6 text-center">
                                 <h2 class="mt-0">안녕하세요 <%= user.name %>님!</h2>
@@ -65,8 +68,8 @@
                                     </div>
                                     
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" id="phone" type="tel" placeholder="비밀번호 입력" data-sb-validations="required" name="password"/>
-                                        <label for="phone">비밀번호</label>
+                                        <input class="form-control" id="pw" type="password" placeholder="비밀번호 입력" data-sb-validations="required" name="password"/>
+                                        <label for="pw">비밀번호</label>
                                         <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
                                     </div>
                                     <div class="d-grid"><button class="btn btn-primary btn-xl" id="submitButton" type="submit">로그인</button></div>

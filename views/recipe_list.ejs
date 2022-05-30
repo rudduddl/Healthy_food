@@ -1,22 +1,28 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Health Food For U</title>
-        <%- include("partials/head_rec") %>
-    </head>
-
-    <body id="page-top">
-         <!-- Navigation-->
+      <%- include("partials/head_rec") %>
+    <!-- Navigation-->
             <%- include("partials/navigation") %>
 
+ <title>Health Food For U</title>
+       
+    </head>
 
-        <header class="masthead">
+    <body id="recipe_list">
+
+     <%- include("partials/like-list") %>
+
+
+</html>
+
+    <div class="all">  
+        <br/>
+        <div class="list-header">선택한 질병</div>
+        <!--header class="masthead"-->
             <div class="header_con">
-            <!-- 즐겨찾는 레시피 목록-->
+              
+            <!-- 즐겨찾는 레시피 목록
                <div class="like">        
                 <fieldset>
                      <legend><br/><h2><strong>홍길동님이 즐겨찾는 레시피입니다.</h2></strong> </legend>
@@ -31,25 +37,26 @@
                             </article>
                         </div>
                     </fieldset>
-                </div>
+                </div>-->
              
              <!-- 주의음식-->
-               <div class="caution">        
-                <fieldset>
-                    <legend><h2><strong>선택하신 질병의 주의음식입니다.</h2></strong></legend>
+              
+               <div class="caution">   
+                
+                    <h2><strong> 주의해야할 음식</h2></strong>
                      <hr class="divider" />
                     
                     <div class="caution_list">
-                     코코아, 아몬드, 땅콩, 호두, 잣, 대두, 보리, 현미, 통밀, 우유, 계란, 시금치, 무청, 근대, 컬리플라워, 브로컬리, 부추,당근
-                                   
-                    
+                    코코아, 아몬드, 땅콩, 호두, 잣, 대두, 보리, 현미, 통밀, 우유, 계란, 시금치, 무청, 근대, 컬리플라워, 브로컬리, 부추,당근
                     </div>
-                    </fieldset>
+                    
                 </div>
             </div>
-        </header>
+
+        <!--/header-->
 
            <!-- 검색창-->
+           <hr/>
         <div class="search">	                                     
 	            		<input type="text" name="query" value="" style="width:50%">
 	           			<button type="submit">검색</button>    
@@ -58,7 +65,7 @@
 
        <!-- 레시피 결과-->
         <div class="result">
-            <h6 style="text-align:left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;총 03개의 레시피가 있습니다.</h6>
+            <h5 style="text-align:left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;총 03개의 레시피가 있습니다.</h5>
            <div class="layout">
                       <article>
                            <div class="flexbox">
@@ -70,6 +77,7 @@
                         </div>
                       
                         </div>
+            </div>
             </div>
             
         </body>
