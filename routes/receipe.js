@@ -7,39 +7,34 @@ router.get("/", (req, res) => {
   res.render("receipe_search");
 });
 
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
   const search = req.body.name;
 
-  console.log("레시피 검색 : " + search);
-  db.searchReceipe(search, function (receipes) {
-    console.log(receipes);
-    res.render("receipe_search", { receipes: receipes });
-  });
+  const receipes = await db.searchReceipe(search);
+  res.render("receipe_search", { receipes: receipes });
 });
 
-router.post("/how", (req, res) => {
+router.post("/how", async (req, res) => {
   const receipeName = req.body.name;
 
-  db.getReceipe(receipeName, function (receipe) {
-    res.render("receipe", {
-      receipe: receipe,
-    });
+  const receipe = await db.getReceipe(receipeName);
+  res.render("receipe", {
+    receipe: receipe,
   });
 });
 
-router.post("/favorite", (req, res) => {
+router.post("/favorite", async (req, res) => {
   const receipeName = req.body.name;
 
   if (req.session.user === undefined) {
     res.send({ result: "로그인 후 이용해주세요" });
     return;
   }
-  db.favoriteReciepe(req.session.user.id, receipeName, function (result) {
-    if (result === true) {
-      res.send({ result: "success" });
-    } else {
-      res.send({ result: "즐겨찾기 추가 실패" });
-    }
-  });
+  const result = await db.favoriteReciepe(req.session.user.id, receipeName);
+  if (result === true) {
+    res.send({ result: "success" });
+  } else {
+    res.send({ result: "즐겨찾기 추가 실패" });
+  }
 });
 module.exports = router;

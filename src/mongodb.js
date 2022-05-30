@@ -28,7 +28,6 @@ function disconnect() {
 }
 module.exports.disconnect = disconnect;
 
-//로그인 로직 구현 (몽고DB에서 찾고자 하는 id를 가진 document를 찾아온 뒤 password 비교)
 async function login(id, password) {
   try {
     const user = await db.collection("user").findOne({ id: id });
@@ -43,79 +42,77 @@ async function login(id, password) {
     return undefined;
   }
 }
-
-module.exports.login = login; //다른 .js파일에서 사용할 수 있도록 module.exports
+module.exports.login = login;
 
 //회원가입 (bcry)
-function signup(signupObj, callback) {
-  db.collection("user")
-    .find({ userid: signupObj.id })
-    .toArray()
-    .then(function (items) {
-      if (items.length > 0) {
-        return callback("ERR_DUPLICATE");
-      }
+async function signup(signupObj) {
+  try {
+    const user = await db.collection("user").findOne({ userid: signupObj.id });
+    if (user) return "ERR_DUPLICATE";
 
-      bcrypt.hash(signupObj.pswd1, 10, (err, encryptedPW) => {
-        if (err) {
-          consolg.log(err);
-          return callback("ERR");
-        }
+    const encryptedPW = bcrypt.hashSync(signupObj.pswd1, 10);
+    delete signupObj.pswd1;
+    signupObj.password = encryptedPW;
 
-        delete signupObj.pswd1;
-        signupObj.password = encryptedPW;
-
-        db.collection("user")
-          .insertOne(signupObj)
-          .then(function (result) {
-            callback("SUCCESS");
-          });
-      });
-    });
+    await db.collection("user").insertOne(signupObj);
+    return "SUCCESS";
+  } catch (e) {
+    console.error(e);
+    return "ERR";
+  }
 }
 module.exports.signup = signup;
 
-function getDisease(callback) {
-  db.collection("disease")
-    .find({})
-    .sort({ name: 1 })
-    .toArray()
-    .then(function (items) {
-      callback(items);
-    });
+async function getDisease() {
+  try {
+    const disease = await db
+      .collection("disease")
+      .find({})
+      .sort({ name: 1 })
+      .toArray();
+
+    return disease;
+  } catch (e) {
+    console.error(e);
+    return undefined;
+  }
 }
 module.exports.getDisease = getDisease;
 
-function searchReceipe(keyword, callback) {
-  db.collection("receipe")
-    .find({ $text: { $search: keyword } }, { projection: { RCP_NM: 1 } })
-    .toArray()
-    .then(function (item) {
-      callback(item);
-    });
+async function searchReceipe(keyword) {
+  try {
+    const receipe = await db
+      .collection("receipe")
+      .find({ $text: { $search: keyword } }, { projection: { RCP_NM: 1 } })
+      .toArray();
+    return receipe;
+  } catch (e) {
+    console.error(e);
+    return undefined;
+  }
 }
 module.exports.searchReceipe = searchReceipe;
 
-function getReceipe(receipeName, callback) {
-  db.collection("receipe")
-    .findOne({ RCP_NM: receipeName })
-    .then(function (item) {
-      callback(item);
-    });
+async function getReceipe(receipeName) {
+  try {
+    const receipe = db.collection("receipe").findOne({ RCP_NM: receipeName });
+    return receipe;
+  } catch (e) {
+    console.error(e);
+    return undefined;
+  }
 }
 module.exports.getReceipe = getReceipe;
 
-function favoriteReciepe(user, receipeName, callback) {
-  db.collection("favoriteReceipe")
-    .insertOne({
+async function favoriteReciepe(user, receipeName) {
+  try {
+    await db.collection("favoriteReceipe").insertOne({
       id: user,
       receipe: receipeName,
-    })
-    .then(function (result) {
-      callback(true);
-    })
-    .catch(function (err) {
-      callback(false);
     });
+    return true;
+  } catch (e) {
+    return false;
+  }
 }
 module.exports.favoriteReciepe = favoriteReciepe;
