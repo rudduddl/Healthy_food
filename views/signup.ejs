@@ -1,19 +1,33 @@
 <!DOCTYPE html>
 
+  
+          
+            
+
 <head>
     <meta charset="UTF-8">
     <title>회원가입</title>
     <link rel="stylesheet" href="/css/signup.css">
-
+    
 </head>
 
 <body>
+    
     <!-- wrapper -->
     <div id="wrapper">
-
+        <div class="all">
         <!-- content-->
         <div id="content">
+            
             <form method="post">
+            
+            <div class="j_title">
+             <a href="/">healthy food for U</a>           
+            </div>
+            <p/>
+            <div class="log">이미 회원이신가요?<button class="log_link" onClick="location.href='/disease'">로그인하기</button></div>
+            
+
                 <!-- ID -->
                 <div>
                     <h3 class="join_title">
@@ -30,7 +44,7 @@
                 <div>
                     <h3 class="join_title"><label for="pswd1">비밀번호</label></h3>
                     <span class="box int_pass">
-                        <input type="text" id="pswd1" class="int" maxlength="20" name="pswd1">
+                        <input type="password" id="pswd1" class="int" maxlength="20" name="pswd1">
                         <span id="alertTxt">사용불가</span>
 
                     </span>
@@ -41,7 +55,7 @@
                 <div>
                     <h3 class="join_title"><label for="pswd2">비밀번호 재확인</label></h3>
                     <span class="box int_pass_check">
-                        <input type="text" id="pswd2" class="int" maxlength="20" name="pswd2">
+                        <input type="password" id="pswd2" class="int" maxlength="20" name="pswd2">
                     </span>
                     <span class="error_next_box"></span>
                 </div>
@@ -139,13 +153,13 @@
                     </button-->
                 </div>
             </form>
-
+            
 
 
 
         </div>
         <!-- content-->
-
+        </div>
     </div>
     <!-- wrapper -->
     <script src="/js/signup.js"></script>

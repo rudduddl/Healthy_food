@@ -4965,12 +4965,8 @@ textarea.form-control-lg {
     margin-left: 1rem;
 }
 
-.card-header {
-    padding: 0.5rem 1rem;
-    margin-bottom: 0;
-    background-color: rgba(0, 0, 0, 0.03);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
-}
+
+
 
     .card-header:first-child {
         border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
@@ -12141,14 +12137,26 @@ li {
 .grid-image, .result, .caution_list {
     text-align: center;
     margin: auto;
+    
    
 }
 
-.result {
-    /*padding: 2px 100px;*/
-    min-width: 1350px;
-    max-width: 80%;
+.caution {
+    padding-top: 2rem;
+    text-align:center;
 }
+
+    .caution_list{
+        font-size: 20px;
+    }
+
+    .result {
+        /*padding: 2px 100px;*/
+        min-width: 1350px;
+        max-width: 80%;
+        background-color: white;
+        margin-bottom: 5rem;
+    }
 
 .header_con {
     background-color: white;
@@ -12161,7 +12169,7 @@ li {
 }
 
 .search {
-    background-color: rgb(181,142,125, 0.4);
+    /*background-color: rgb(181,142,125, 0.4);*/
     padding: 10px;
 }
 
@@ -12236,7 +12244,7 @@ img:not(.logo , .all){
     min-width: 1350px;
     max-width: 80%;
     margin: auto;
-    margin-top:5rem;
+    margin-top:72px;
     background-color:white;
     padding-bottom:2rem;
 }
@@ -12258,33 +12266,53 @@ img:not(.logo , .all){
 
 .cooking {
     text-align: left;
-    width: 40%;
-    height: 40%;
+    width: 60%;
+   
     margin:auto;
+    font-size: 20px;
 }
 
 .num {
     font-size: .8em;
     width: 2em;
-    height:2em;
+    height: 2em;
     border-radius: 3em;
     padding: .1em .2em;
     line-height: 1.25em;
     border: 1px solid #fff;
     display: inline-block;
     text-align: center;
-    background-color:aquamarine;
+    background-color: #77af9c;
 }
 
-.Material {
-    font-size: 1.2em;
-    width: 20%;
-    height: 2em;
-    /*padding: .2em .2em;*/
-    padding: 0.5rem;
-    line-height: 1.25em;
-    border: 1px solid #fff;
-    display: inline-block;
-    text-align: center;
-    background-color: aquamarine;
+
+
+
+.card-header {
+    padding: 0.5rem 1rem;
+    margin-bottom: 0;
+    background-color: darkseagreen;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    
+    font-weight:bold;
+    font-size:19px;
 }
+
+.list-header {
+    padding: 0.5rem 1rem;
+    margin-bottom: 0;
+    background-color: rgb(143,188,143,0.8);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    font-weight: bold;
+    font-size: 19px;
+    color: black;
+    
+
+}
+#recipe_list {
+    background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../assets/img/re.jpg");
+}
+
+
+
+
