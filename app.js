@@ -6,6 +6,7 @@ const expressSession = require("express-session");
 const member = require("./routes/member");
 const receipe = require("./routes/receipe");
 const disease = require("./routes/disease");
+const mongodb = require("./src/mongodb");
 
 app.set("port", process.env.PORT || 3000);
 app.set("view engine", "ejs");
@@ -30,23 +31,38 @@ app.use("/member", member);
 app.use("/receipe", receipe);
 app.use("/disease", disease);
 
-
 //홈화면 표시 (index.ejs 렌더링)
 app.get("/", function (req, res) {
-    res.render("index", {
+  res.render("index", {
     user: req.session.user,
   }); //index.ejs 파일 렌더링 (view engine을 ejs로 지정했기 때문에 확장자 생략)
 });
 
-app.get('/recipe_list', function (req, res) {
-    res.render('recipe_list');
+app.get("/recipe_list", async function (req, res) {
+  let favoriteReceipes = [];
+  if (req.session.user) {
+    favoriteReceipes = await mongodb.getFavoriteReceipe(req.session.user.id);
+  }
+  const disease = await mongodb.getDisease(req.query.disease_id);
+  const cautionReceipes = await mongodb.getCautionReceipe(disease.caution);
+  res.render("recipe_list", {
+    favoriteReceipes: favoriteReceipes,
+    disease: disease,
+    cautionReceipes: cautionReceipes,
+  });
 });
 
-app.get('/recipe_view', function (req, res) {
-    res.render('recipe_view');
+app.get("/recipe_view", async function (req, res) {
+  let favoriteReceipes = [];
+  if (req.session.user) {
+    favoriteReceipes = await mongodb.getFavoriteReceipe(req.session.user.id);
+  }
+  const receipe = await mongodb.getReceipe(req.query.receipe_id);
+  res.render("recipe_view", {
+    favoriteReceipes: favoriteReceipes,
+    receipe: receipe,
+  });
 });
-
-
 
 //서버 실행
 app.listen(app.get("port"), function () {

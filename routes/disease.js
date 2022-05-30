@@ -3,7 +3,7 @@ const router = express.Router();
 const mongodb = require("../src/mongodb");
 
 router.get("/", async (req, res) => {
-  const disease = await mongodb.getDisease();
+  const disease = await mongodb.getAllDisease();
   res.render("next", { disease: disease });
 });
 

@@ -7,38 +7,78 @@
         <meta name="author" content="" />
         <title>Health Food For U</title>
         <%- include("partials/head_rec") %>
+
+        <script type="text/javascript">
+            window.onload = function() {
+                var httpRequest;
+    
+                document.getElementById("favoriteBtn").addEventListener('click', () => {
+                    var reqJson = new Object();
+                    reqJson.name = "<%= receipe._id %>";
+                    httpRequest = new XMLHttpRequest();
+    
+                    httpRequest.onreadystatechange = () => {
+                        if (httpRequest.readyState === XMLHttpRequest.DONE) {
+                              if (httpRequest.status === 200) {
+                                var result = httpRequest.response.result;
+                                console.log(result);
+                                if(result==='success'){
+                                    alert('즐겨찾기에 추가됨');
+                                }
+                                else{
+                                    alert(result);
+                                }
+                              } else {
+                                alert('request에 뭔가 문제가 있어요.');
+                              }
+                        }
+                    };
+                    
+                    httpRequest.open('POST', '/receipe/favorite', true);
+                    httpRequest.responseType = "json";
+                    httpRequest.setRequestHeader('Content-Type', 'application/json');
+                    httpRequest.send(JSON.stringify(reqJson));                
+                });
+            }
+        </script>
     </head>
 
     <body id="recipe_view">
          <!-- Navigation-->
             <%- include("partials/navigation") %>
-              <%- include("partials/like-list") %>
+              <%- include("partials/like-list", {favoriteReceipes: favoriteReceipes}) %>
        <div>
 
            <div class="all">  
 
             <div class="recipe">
                 <div class="title">
-                        <img src="assets/img/ex1.jpg">
-	                    <h1>호박죽</h1>
-                        <button class="add">즐겨찾기에 추가</button>
+                        <img src="<%= receipe.ATT_FILE_NO_MK %>">
+	                    <h1><%= receipe.RCP_NM %></h1>
+                        <button class="add" id="favoriteBtn">즐겨찾기에 추가</button>
                     </div>
 		    <hr/>
 
                     <div class="cook">
                         <h2>[재료]</h2>
                     
-	                    <p><h5>단호박 1통  찬밥 1/2공기  물 2컵 설탕 2T 소금 1/2T 꿀 또는 설탕</h5> </p>
+	                    <p><h5><%= receipe.RCP_PARTS_DTLS %></h5> </p>
 			   <hr class="divider" />   
                         <h2>[조리 순서]</h2>
                         <p/>
                         <div class="cooking">
-                        <span class="num">1</span> 단호박을 전자렌지에 6분정도 돌려준 후 꺼내서 적당히 잘라 껍질을 벗겨준다.<br>
-                        <span class="num">2</span> 자른 단호박을 믹서기에 넣어준다.<br>
-                        <span class="num">3</span> 물 2컵을 함께 넣어주고 믹서기로갈아준다.<br>
-                        <span class="num">4</span> 어느정도 갈렸을때 밥 1공기를 넣어주고, 물 2컵을 넣어준 후 다시 곱게 갈아준다.<br>
-                        <span class="num">5</span> 곱게 갈린 것을 궁중팬에 옮겨준 후 약한 불에서  잘 저어주면서 끓여준다.<br>
-                       <span class="num">6</span>  보글보글 끓을 때 마지막으로 설탕(꿀) 약 2큰술, 소금 1/3큰술을 넣어 당도와 간을 맞춰준다.<br>
+                        <% for(var i=1; i<19; i++){ %>
+                            <% if(receipe["MANUAL"+String(i).padStart(2, '0')].length > 0){ %>
+                                <span class="num"><%= i %></span><%= receipe["MANUAL"+String(i).padStart(2, '0')] %><br>
+                            <% } %>
+
+                            <!-- 조리방법 이미지 -->
+                            <!--/br> 
+                                <% if(receipe["MANUAL_IMG"+String(i).padStart(2, '0')].length > 0){ %>
+                                        <img src="<%= receipe['MANUAL_IMG'+String(i).padStart(2, '0')] %>">
+                                <% } %>
+                            </br-->
+                        <% } %>
                        </div>
                     </div>
              </div>           

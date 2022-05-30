@@ -5,16 +5,11 @@
         </div>
         
         <ul>
-            <li>
-                <a href="recipe_view"><img src="assets/img/ex1.jpg" /><br/>호박죽</a>               
-           </li>
-            <li>
-                <a href="recipe_view"><img src="assets/img/ex2.jpg"/><br/>콩나물 국밥</a>               
-           </li>
-            <li>
-                <a href="recipe_view"><img src="assets/img/ex3.jpg"/><br/>배중탕</a>
-           </li>
-          
+            <% for(const receipe of favoriteReceipes) { %>
+                <li>
+                    <a href="recipe_view?receipe_id=<%= receipe._id %>"><img src="<%= receipe.ATT_FILE_NO_MK %>" /><br/><%= receipe.RCP_NM %></a>               
+               </li>
+            <% } %>
        </ul>
        
     </div>

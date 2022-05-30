@@ -2,6 +2,7 @@ const {
   MongoClient,
   ServerApiVersion,
   MongoGridFSChunkError,
+  ObjectId,
 } = require("mongodb");
 const bcrypt = require("bcrypt");
 const { get } = require("express/lib/response");
@@ -63,7 +64,19 @@ async function signup(signupObj) {
 }
 module.exports.signup = signup;
 
-async function getDisease() {
+async function getDisease(id) {
+  try {
+    const disease = await db
+      .collection("disease")
+      .findOne({ _id: ObjectId(id) });
+    return disease;
+  } catch (e) {
+    console.error(e);
+  }
+}
+module.exports.getDisease = getDisease;
+
+async function getAllDisease() {
   try {
     const disease = await db
       .collection("disease")
@@ -74,10 +87,10 @@ async function getDisease() {
     return disease;
   } catch (e) {
     console.error(e);
-    return undefined;
+    return [];
   }
 }
-module.exports.getDisease = getDisease;
+module.exports.getAllDisease = getAllDisease;
 
 async function searchReceipe(keyword) {
   try {
@@ -88,14 +101,16 @@ async function searchReceipe(keyword) {
     return receipe;
   } catch (e) {
     console.error(e);
-    return undefined;
+    return [];
   }
 }
 module.exports.searchReceipe = searchReceipe;
 
-async function getReceipe(receipeName) {
+async function getReceipe(receipeId) {
   try {
-    const receipe = db.collection("receipe").findOne({ RCP_NM: receipeName });
+    const receipe = db
+      .collection("receipe")
+      .findOne({ _id: ObjectId(receipeId) });
     return receipe;
   } catch (e) {
     console.error(e);
@@ -104,11 +119,26 @@ async function getReceipe(receipeName) {
 }
 module.exports.getReceipe = getReceipe;
 
+async function getCautionReceipe(caution) {
+  try {
+    const receipe = db
+      .collection("receipe")
+      .find({}, { projection: { RCP_NM: 1, ATT_FILE_NO_MK: 1 } })
+      .limit(25)
+      .toArray();
+    return receipe;
+  } catch (e) {
+    console.error(e);
+    return [];
+  }
+}
+module.exports.getCautionReceipe = getCautionReceipe;
+
 async function favoriteReciepe(user, receipeName) {
   try {
     await db.collection("favoriteReceipe").insertOne({
       id: user,
-      receipe: receipeName,
+      receipeId: receipeName,
     });
     return true;
   } catch (e) {
@@ -116,3 +146,29 @@ async function favoriteReciepe(user, receipeName) {
   }
 }
 module.exports.favoriteReciepe = favoriteReciepe;
+
+async function getFavoriteReceipe(userId) {
+  try {
+    const result = [];
+    const favoriteReceipeIds = await db
+      .collection("favoriteReceipe")
+      .find({ id: userId })
+      .toArray();
+
+    for (const favoriteReciepe of favoriteReceipeIds) {
+      var receipe = await db
+        .collection("receipe")
+        .findOne(
+          { _id: ObjectId(favoriteReciepe.receipeId) },
+          { projection: { RCP_NM: 1, ATT_FILE_NO_MK: 1 } }
+        );
+
+      result.push(receipe);
+    }
+
+    return result;
+  } catch (e) {
+    console.error(e);
+  }
+}
+module.exports.getFavoriteReceipe = getFavoriteReceipe;
