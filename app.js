@@ -26,6 +26,12 @@ app.use(
   })
 );
 
+app.use(function (req, res, next) {
+  if (req.session.user) res.locals.user = req.session.user;
+  else res.locals.user = undefined;
+  next();
+});
+
 //apply routes
 app.use("/member", member);
 app.use("/receipe", receipe);
@@ -33,9 +39,7 @@ app.use("/disease", disease);
 
 //홈화면 표시 (index.ejs 렌더링)
 app.get("/", function (req, res) {
-  res.render("index", {
-    user: req.session.user,
-  }); //index.ejs 파일 렌더링 (view engine을 ejs로 지정했기 때문에 확장자 생략)
+  res.render("index"); //index.ejs 파일 렌더링 (view engine을 ejs로 지정했기 때문에 확장자 생략)
 });
 
 app.get("/recipe_list", async function (req, res) {

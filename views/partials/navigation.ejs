@@ -6,18 +6,45 @@
         <div class="collapse navbar-collapse" id="navbarResponsive"></div>
     </div>
 	
-	
+	<% if(user){ %>
+		<div class="user">
+			안녕하세요 <%= user.name %>님!
+		</div>
+		
+		<div class="logout">
+			
+			<form action="/member/logout" method="post">
+				<button type="submit" style="border: none; background-color: transparent">로그아웃</button>
+			</form>
+		</div>
+	<% } else { %>
+		<div>
+			<a class="signup" href="/member/signup">회원가입</a>
+		</div>
+		<div>
+			<a class="login" href="/#contact">로그인</a>
+		</div>
+	<% } %>
 
 	<div>
 		<a class="navbar-brand" href="#">▲top▲</a>
 	</div>
+	
 </nav>
 
 <style>
-	.navbar-brand{
+	.navbar-brand, .user{
 	margin-right: 5rem;
 	}
 	#mainNav{
 	background-color:rgb(189,189,189,0.5);
+	}
+
+	.login, .signup, .user, .logout{
+		margin: 0px 25px 0px 0px;
+	}
+
+	.user{
+		color: white
 	}
 </style>
