@@ -44,7 +44,10 @@ app.get("/recipe_list", async function (req, res) {
     favoriteReceipes = await mongodb.getFavoriteReceipe(req.session.user.id);
   }
   const disease = await mongodb.getDisease(req.query.disease_id);
-  const cautionReceipes = await mongodb.getCautionReceipe(disease.caution);
+  const cautionReceipes = await mongodb.getCautionReceipe(
+    disease.caution,
+    req.query.search
+  );
   res.render("recipe_list", {
     favoriteReceipes: favoriteReceipes,
     disease: disease,

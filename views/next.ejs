@@ -26,8 +26,10 @@
           </div>
 
           <div>
-            <input type="text" name="query" value="">
-            <button type="submit">검색</button>
+            <form method="get">
+              <input type="text" name="search">
+              <button type="submit">검색</button>
+            </form>
           </div>
 
 
@@ -81,173 +83,54 @@
 
 
     <div class="category">
-      <section class="page-section" id="section1">
-        <h1 class="c_title"><strong>내분비/대사 질환</h1></strong>
-        <hr class="divider" />
-        <table class="tg">
-          <tbody>
-            <%
-              disease.filter(function(item){
-                return item.main_category === "[내분비, 영양 및 대사 질환]";
-              }).forEach(function(item){
-            %>
-            <tr>
-             
-              <td><a href="recipe_list?disease_id=<%= item._id %>"><%= item.name %></th>
-            </tr>
-            <%    
-              });
-            %>
-          </tbody>
-        </table>
-      </section>
+      <% const title = ["내분비/대사 질환", "부인과 질환", "소화계통 질환", "신장/비뇨기 질환", "혈액/순환계통 질환", "호흡기 질환"] %>
+      <%
+        const mainCategory = {
+          "내분비/대사 질환": ["[내분비, 영양 및 대사 질환]"],
+          "부인과 질환": ["[부인과 질환]"],
+          "소화계통 질환": ["[소화계통 질환]"],
+          "신장/비뇨기 질환": ["[비뇨생식계통 질환]", "[신장질환]"],
+          "혈액/순환계통 질환": ["[순환계통 질환]", "[혈액 및 조혈기관 질환]"],
+          "호흡기 질환": ["[호흡계통 질환]"]
+        }
+      %>
 
+      <%
+      for(var i=0; i<title.length; i++) { 
+        var filtered = [];
+        for(var j=0; j<mainCategory[title[i]].length; j++){
+            filtered = filtered.concat(disease.filter(function(item){
+              return item.main_category === mainCategory[title[i]][j];
+            }));
+        }
+      %>
 
+        <% if(filtered.length > 0){ %>
+          <section class="page-section" id="section<%= i+1 %>">
+            <h1 class="c_title"><strong><%= title[i] %></h1></strong>
+            <hr class="divider" />
 
-      <section class="page-section" id="section2">
-        <h1><strong>부인과 질환</h1></strong>
-        <hr class="divider" />
+            <table class="tg">
+              <tbody>
+                  
+                  <% filtered.forEach(function(item){ %>
+                  <tr>
+                  
+                    <td><a href="recipe_list?disease_id=<%= item._id %>"><%= item.name %></th>
+                  </tr>
+                  <% }); %>
+              </tbody>
+            </table>
+          </section>
+        <% } %>
+      <% } %>
 
-       <table class="tg">
-          <tbody>
-            <%
-              disease.filter(function(item){
-                return item.main_category === "[부인과 질환]";
-              }).forEach(function(item){
-            %>
-            <tr>
-           
-              <td><a href="recipe_list?disease_id=<%= item._id %>"><%= item.name %></th>
-            </tr>
-            <%    
-              });
-            %>
-          </tbody>
-        </table>
-      </section>
-
-
-
-      <section class="page-section" id="section3">
-        <h1><strong>소화계통 질환</h1></strong>
-        <hr class="divider" />
-
-       <table class="tg">
-          <tbody>
-            <%
-              disease.filter(function(item){
-                return item.main_category === "[소화계통 질환]";
-              }).forEach(function(item){
-            %>
-            <tr>
-            
-              <td><a href="recipe_list?disease_id=<%= item._id %>"><%= item.name %></th>
-            </tr>
-            <%    
-              });
-            %>
-          </tbody>
-        </table>
-      </section>
-
-
-      <section class="page-section" id="section4">
-        <h1><strong>신장/비뇨기 질환</h1></strong>
-        <hr class="divider" />
-
-       <table class="tg">
-          <tbody>
-            <%
-              disease.filter(function(item){
-                return item.main_category === "[비뇨생식계통 질환]";
-              }).forEach(function(item){
-            %>
-            <tr>
-             
-              <td><a href="recipe_list?disease_id=<%= item._id %>"><%= item.name %></th>
-            </tr>
-            <%    
-              });
-            %>
-
-            <%
-              disease.filter(function(item){
-                return item.main_category === "[신장질환]";
-              }).forEach(function(item){
-            %>
-            <tr>
-             
-              <td><a href="recipe_list?disease_id=<%= item._id %>"><%= item.name %></th>
-            </tr>
-            <%    
-              });
-            %>
-          </tbody>
-        </table>
-      </section>
-
-
-
-
-      <section class="page-section" id="section5">
-        <h1><strong>혈액/순환계통 질환</h1></strong>
-        <hr class="divider" />
-
-       <table class="tg">
-          <tbody>
-            <%
-              disease.filter(function(item){
-                return item.main_category === "[순환계통 질환]";
-              }).forEach(function(item){
-            %>
-            <tr>
-           
-              <td><a href="recipe_list?disease_id=<%= item._id %>"><%= item.name %></th>
-            </tr>
-            <%    
-              });
-            %>
-
-            <%
-              disease.filter(function(item){
-                return item.main_category === "[혈액 및 조혈기관 질환]";
-              }).forEach(function(item){
-            %>
-            <tr>
-              
-              <td><a href="recipe_list?disease_id=<%= item._id %>"><%= item.name %></th>
-            </tr>
-            <%    
-              });
-            %>
-          </tbody>
-        </table>
-      </section>
-
-
-
-
-      <section class="page-section" id="section6">
-        <h1><strong>호흡기 질환</h1></strong>
-        <hr class="divider" />
-
-       <table class="tg">
-          <tbody>
-            <%
-              disease.filter(function(item){
-                return item.main_category === "[호흡계통 질환]";
-              }).forEach(function(item){
-            %>
-            <tr>
-              
-              <td><a href="recipe_list?disease_id=<%= item._id %>"><%= item.name %></th>
-            </tr>
-            <%    
-              });
-            %>
-          </tbody>
-        </table>
-      </section>
+      <% if(disease.length === 0) { %>
+        <div class="page-section">
+          <h1 class="c_title"><strong>검색결과 없음</h1></strong>
+          <hr class="divider" />
+        </div>
+      <% } %>
     </div>
 
 </body>

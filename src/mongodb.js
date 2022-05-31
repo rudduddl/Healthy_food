@@ -20,7 +20,10 @@ connect();
 
 //몽고DB 접속
 function connect() {
-  client.connect((err) => {});
+  client.connect((err) => {
+    if (err) console.error(err);
+    else console.log("mongodb connected");
+  });
 }
 
 //몽고DB 접속 해제
@@ -76,11 +79,14 @@ async function getDisease(id) {
 }
 module.exports.getDisease = getDisease;
 
-async function getAllDisease() {
+async function searchDisease(keyword) {
   try {
+    const option = {};
+    if (keyword) option.name = { $regex: keyword };
+
     const disease = await db
       .collection("disease")
-      .find({})
+      .find(option)
       .sort({ name: 1 })
       .toArray();
 
@@ -90,7 +96,7 @@ async function getAllDisease() {
     return [];
   }
 }
-module.exports.getAllDisease = getAllDisease;
+module.exports.searchDisease = searchDisease;
 
 async function searchReceipe(keyword) {
   try {
@@ -119,12 +125,31 @@ async function getReceipe(receipeId) {
 }
 module.exports.getReceipe = getReceipe;
 
-async function getCautionReceipe(caution) {
+async function getCautionReceipe(caution, keyword) {
+  function regExp(str) {
+    var reg = /[\{\}\[\]\/?.;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi;
+    if (reg.test(str)) {
+      return str.replace(reg, "");
+    } else {
+      return str;
+    }
+  }
+
   try {
+    caution = regExp(caution);
+    const split = caution.replace(" ", "").split(",");
+    const option = [];
+    for (const s of split) {
+      option.push({ RCP_PARTS_DTLS: { $not: { $regex: s } } });
+    }
+
+    const query = { $and: option };
+    if (keyword) query.$text = { $search: keyword };
+
     const receipe = db
       .collection("receipe")
-      .find({}, { projection: { RCP_NM: 1, ATT_FILE_NO_MK: 1 } })
-      .limit(25)
+      .find(query, { projection: { RCP_NM: 1, ATT_FILE_NO_MK: 1 } })
+      .limit(20)
       .toArray();
     return receipe;
   } catch (e) {

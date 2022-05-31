@@ -57,10 +57,13 @@
 
            <!-- 검색창-->
            <hr/>
-        <div class="search">	                                     
-	            		<input type="text" name="query" value="" style="width:50%">
-	           			<button type="submit">검색</button>    
-	                </div>
+        <div class="search">
+            <form method="get">
+                <input type="text" name="search" style="width:50%">
+                <input type="hidden" name="disease_id" value="<%= disease._id %>" style="width:50%">
+                <button type="submit">검색</button> 
+            </form>
+	    </div>
        <p/>
 
        <!-- 레시피 결과-->
