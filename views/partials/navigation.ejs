@@ -7,22 +7,27 @@
     </div>
 	
 	<% if(user){ %>
-		<div class="user">
-			안녕하세요 <%= user.name %>님!
+		<!--user-->
+		<div class="navbar-brand">
+			<span id="user">
+				안녕하세요 <%= user.name %>님!
+			</span>
 		</div>
 		
-		<div class="logout">
-			
+		<!--logout-->
+		<div class="navbar-brand">
 			<form action="/member/logout" method="post">
-				<button type="submit" style="border: none; background-color: transparent">로그아웃</button>
+				<button type="submit" id="logout">로그아웃</button>
 			</form>
 		</div>
 	<% } else { %>
+		<!--sign-->
 		<div>
-			<a class="signup" href="/member/signup">회원가입</a>
+			<a class="navbar-brand" href="/member/signup">회원가입</a>
 		</div>
+		<!--login-->
 		<div>
-			<a class="login" href="/#contact">로그인</a>
+			<a class="navbar-brand"  href="/#contact">로그인</a>
 		</div>
 	<% } %>
 
@@ -33,18 +38,28 @@
 </nav>
 
 <style>
-	.navbar-brand, .user{
-	margin-right: 5rem;
-	}
+
 	#mainNav{
 	background-color:rgb(189,189,189,0.5);
 	}
 
-	.login, .signup, .user, .logout{
-		margin: 0px 25px 0px 0px;
+	#logout{
+	border:none;
+	outline:none;
+	background:none;
+	font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	font-weight: 700;
+	color: #fff;
+	opacity:0.8;
 	}
 
-	.user{
-		color: white
+	#logout:hover{
+	color:#fff;
+	opacity:1;
 	}
+
+
+	#user{color:#fff;}
+
+
 </style>

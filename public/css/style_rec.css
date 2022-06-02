@@ -12150,22 +12150,21 @@ li {
         font-size: 20px;
     }
 
-    .result {
-        /*padding: 2px 100px;*/
-        min-width: 1350px;
-        max-width: 80%;
-        background-color: white;
-        margin-bottom: 5rem;
-    }
+.result {
+    /*padding: 2px 100px;*/
+    min-width: 900px;
+    max-width: 90%;
+    background-color: white;
+    margin-bottom: 5rem;
+}
 
 .header_con {
     background-color: white;
-  /* margin: auto 100px -50px 100px;*/
-    margin:auto;
+    /* margin: auto 100px -50px 100px;*/
+    margin: auto;
     padding-bottom: 50px;
-    min-width: 1350px;
-    max-width:80%;
-    
+    min-width: 900px;
+    max-width: 80%;
 }
 
 .search {
@@ -12241,7 +12240,7 @@ img:not(.logo , .all){
 
 
 .all {
-    min-width: 1350px;
+    min-width: 900px;
     max-width: 80%;
     margin: auto;
     margin-top:72px;
