@@ -12152,8 +12152,8 @@ li {
 
 .result {
     /*padding: 2px 100px;*/
-    min-width: 900px;
-    max-width: 90%;
+   
+    max-width: 100%;
     background-color: white;
     margin-bottom: 5rem;
 }
@@ -12163,7 +12163,7 @@ li {
     /* margin: auto 100px -50px 100px;*/
     margin: auto;
     padding-bottom: 50px;
-    min-width: 900px;
+    
     max-width: 80%;
 }
 
@@ -12240,7 +12240,7 @@ img:not(.logo , .all){
 
 
 .all {
-    min-width: 900px;
+   
     max-width: 80%;
     margin: auto;
     margin-top:72px;
