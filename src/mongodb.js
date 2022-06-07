@@ -137,7 +137,20 @@ async function getCautionReceipe(caution, keyword) {
 
   try {
     caution = regExp(caution);
-    const split = caution.replace(" ", "").split(",");
+    let split = caution.replace(" ", "").split(",");
+
+    const filtered = split.filter(
+      (element) => element.includes("식품") || element.includes("류")
+    );
+    for (const element of filtered) {
+      const result = await db
+        .collection("foodClass")
+        .findOne({ class: element });
+      if (result) {
+        split = split.concat(result.value);
+      }
+    }
+
     const option = [];
     for (const s of split) {
       option.push({ RCP_PARTS_DTLS: { $not: { $regex: s } } });
@@ -146,7 +159,7 @@ async function getCautionReceipe(caution, keyword) {
     const query = { $and: option };
     if (keyword) query.$text = { $search: keyword };
 
-    const receipe = db
+    const receipe = await db
       .collection("receipe")
       .find(query, { projection: { RCP_NM: 1, ATT_FILE_NO_MK: 1 } })
       .limit(20)
