@@ -69,7 +69,10 @@
                         <div class="cooking">
                         <% for(var i=1; i<19; i++){ %>
                             <% if(receipe["MANUAL"+String(i).padStart(2, '0')].length > 0){ %>
-                                <span class="num"><%= i %></span><%= receipe["MANUAL"+String(i).padStart(2, '0')] %><br>
+                                <% const pos = receipe["MANUAL"+String(i).padStart(2, '0')].indexOf(".") %>
+                                <% const order = receipe["MANUAL"+String(i).padStart(2, '0')].slice(0, pos) %>
+                                <% const cook = receipe["MANUAL"+String(i).padStart(2, '0')].slice(pos+1, receipe["MANUAL"+String(i).padStart(2, '0')].length) %>
+                                <span class="num"><%= order %></span><%= cook %><br>
                             <% } %>
 
                             <!-- 조리방법 이미지 -->
