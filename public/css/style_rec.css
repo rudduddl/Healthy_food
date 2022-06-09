@@ -251,7 +251,7 @@ a {
 }
 
     a:hover {
-        color: #c34e2e;
+        
     }
 
     a:not([href]):not([class]), a:not([href]):not([class]):hover {
@@ -12141,14 +12141,33 @@ li {
    
 }
 
+
+/*.all {
+   
+    max-width: 80%;
+    margin: auto;
+    margin-top:72px;
+    background-color:white;
+    padding-bottom:2rem;
+}*/
+
 .caution {
-    padding-top: 2rem;
-    text-align:center;
+    padding-top: 5rem;
+    text-align: center;
+    margin-top: 3rem;
 }
 
-    .caution_list{
-        font-size: 20px;
-    }
+.caution_list {
+    font-size: 20px;
+    border-radius: 15px 15px 15px 0;
+    border: 3px solid green; 
+    padding: 0.5em 0.6em; 
+    color: black;
+   width:60%;
+    
+}
+
+    
 
 .result {
     /*padding: 2px 100px;*/
@@ -12164,7 +12183,7 @@ li {
     margin: auto;
     padding-bottom: 50px;
     
-    max-width: 80%;
+    /*max-width: 80%;*/
 }
 
 .search {
@@ -12177,6 +12196,9 @@ li {
     color: #d7fff1;
     border:0;
     outline:0;
+    text-align:center;
+    margin:auto;
+   
 }
 
 legend, .search {
@@ -12189,22 +12211,30 @@ li:not(:last-child) {
 
 
 .layout {
-    max-width: 100%;
     margin: 0;
-    
     display: flex;
     flex-wrap: nowrap;
     gap: 1em;
+    width:100%;
+    background-color:#fff;   
 }
-
-
-
+.r_item {
+    padding: .2rem;
+    background-color: #fff;
+}
+.r_item:hover {
+    background-color: forestgreen;
+}
+.recommand{
+    background-color:#fff;
+    margin-bottom:2rem;
+}
 article {
     flex-basis: 680px;
     flex-grow: 1;
     flex-shrink: 1;
-    background-color: #ffe0e0;
-
+    background-color: #fff;
+    margin-bottom:2rem;
 }
 
 .flexbox {
@@ -12215,21 +12245,45 @@ article {
     background-color: white;
     flex-grow: 0;
     flex-shrink: 0;
+    width:80%;
     
 }
 
 
 .item {
-    height:  15em;
-    flex-basis: 15em;
-    flex-shrink: 0;
-    flex-grow: 0;
+    padding: .2rem;
+}
+
+.item:hover {
+    background-color:forestgreen;
     
-    margin: 10px;
    
 }
 
-img:not(.logo , .all){
+input {
+    width: 60%;
+    border-radius: 20px;
+    border: 1px solid #bbb;
+    margin: 10px 0;
+    padding: 10px 12px;
+}
+
+#search {
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 10px 30px;
+    border-radius: 15px;
+    font-family: "paybooc-Light", sans-serif;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+    background-color: #77af9c;
+    color: #d7fff1;
+}
+
+img:not(.logo, .all) {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -12239,14 +12293,7 @@ img:not(.logo , .all){
 
 
 
-.all {
-   
-    max-width: 80%;
-    margin: auto;
-    margin-top:72px;
-    background-color:white;
-    padding-bottom:2rem;
-}
+
 .recipe {
     margin: 2rem auto;
     text-align:center;
@@ -12254,9 +12301,11 @@ img:not(.logo , .all){
 }
 
 .title{
-    width:30%;
-    height:30%;
+    width:25%;
+    height:25%;
     margin: 1rem auto;
+    background-color:white;
+    padding:1rem;
 }
 
 #recipe_view {
@@ -12269,6 +12318,12 @@ img:not(.logo , .all){
    
     margin:auto;
     font-size: 20px;
+}
+
+.rec{
+    background-color:#fff;
+    text-align:center;
+    padding: 5rem 20rem;
 }
 
 .num {
@@ -12296,21 +12351,50 @@ img:not(.logo , .all){
     font-weight:bold;
     font-size:19px;
 }
+.title_div {
+    position: relative;
+    /*left: 200px;*/
+    /*top: 300px;*/
+
+    font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+    text-transform: uppercase;
+    display: block;
+    font-size: 50px;
+    color: #fff;
+    text-shadow: 0 8px 50px #c4b59d;
+    /*text-shadow: 0 8px 9px #c4b59d, 0px -2px 1px #fff;*/
+    font-weight: bold;
+    letter-spacing: -4px;
+    text-align: center;
+    background: /*linear-gradient(to bottom, #ece4d9 0%,#e9dfd1 100%);*/;
+    position: absolute;
+    padding: 10px 70px;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 20px;
+}
+
+.d_name{
+    color:wheat;
+}
+
 
 .list-header {
     padding: 0.5rem 1rem;
     margin-bottom: 0;
-    background-color: rgb(143,188,143,0.8);
+    background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../assets/img/rec.jpg");
+    height: 30rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.125);
     font-weight: bold;
     font-size: 19px;
     color: black;
-    
-
 }
 #recipe_list {
     background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../assets/img/re.jpg");
 }
+
+
 
 
 

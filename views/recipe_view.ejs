@@ -47,18 +47,21 @@
          <!-- Navigation-->
             <%- include("partials/navigation") %>
               <%- include("partials/like-list", {favoriteReceipes: favoriteReceipes}) %>
-       <div>
+      
 
-           <div class="all">  
+           
 
             <div class="recipe">
                 <div class="title">
-                        <img src="<%= receipe.ATT_FILE_NO_MK %>">
+                        <img src="<%= receipe.ATT_FILE_NO_MK %>"><p/>
 	                    <h1><%= receipe.RCP_NM %></h1>
-                        <button class="add" id="favoriteBtn">즐겨찾기에 추가</button>
+                        <button class="add" id="favoriteBtn">즐겨찾기에 추가</button><p/>
+                        <h6>즐겨찾는 레시피는 왼쪽에 마우스를 가져다대면 보여요!</h6>   
                     </div>
-		    <hr/>
-
+                    
+             </div> 
+             
+            <section class="rec">
                     <div class="cook">
                         <h2>[재료]</h2>
                     
@@ -84,20 +87,24 @@
                         <% } %>
                        </div>
                     </div>
-             </div>           
-         
+             </section>
+         <section class="recommand">
+   
+
              <div class="layout">
                           <article>
-                           <div class="card-header">이 레시피는 어때요?</div>
+                           <div class="card-header" ><sapn style="margin-left:5rem;">이 레시피는 어때요?</sapn></div>
                                <div class="flexbox">
-                                        <div class="item"><a href="recipe_view"><img src="assets/img/ex1.jpg" /><br/>호박죽</a></div>
-                                        <div class="item"><a href="recipe_view"><img src="assets/img/ex2.jpg"/><br/>콩나물 국밥</a></div>    
-                                        <div class="item"><a href="recipe_view"><img src="assets/img/ex3.jpg"/><br/>배중탕</a></div>
+                                        <div class="r_item"><a href="recipe_view"><img src="assets/img/ex1.jpg" /><br/>호박죽</a></div>
+                                        <div class="r_item"><a href="recipe_view"><img src="assets/img/ex2.jpg"/><br/>콩나물 국밥</a></div>    
+                                        <div class="r_item"><a href="recipe_view"><img src="assets/img/ex3.jpg"/><br/>배중탕</a></div>
+                                  
                                 <div>
                              </article>
                  </div>
+               </section>
 
-              </div>
-          <div>
+              
+       
 </body> 
 </html>

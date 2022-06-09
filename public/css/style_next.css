@@ -12121,3 +12121,27 @@ header.masthead {
     margin: auto;
     font-size: 20px;
 }
+
+
+input {
+    width: 60%;
+    border-radius: 20px;
+    border: 1px solid #bbb;
+    margin: 10px 0;
+    padding: 10px 12px;
+}
+
+#search {
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 10px 30px;
+    border-radius: 15px;
+    font-family: "paybooc-Light", sans-serif;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+    background-color: rgb(258,258,258,0.8);
+    color: black;
+}
