@@ -12218,17 +12218,22 @@ li:not(:last-child) {
     width:100%;
     background-color:#fff;   
 }
-.r_item {
+.rmd_item {
     padding: .2rem;
     background-color: #fff;
+    width: 25rem;
+    height: 25rem;
+    text-align: center;
 }
-.r_item:hover {
+.rmd_item:hover {
     background-color: forestgreen;
 }
 .recommand{
     background-color:#fff;
     margin-bottom:2rem;
 }
+
+
 article {
     flex-basis: 680px;
     flex-grow: 1;
@@ -12252,7 +12257,11 @@ article {
 
 .item {
     padding: .2rem;
+   
+
 }
+
+
 
 .item:hover {
     background-color:forestgreen;
