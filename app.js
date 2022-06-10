@@ -35,8 +35,20 @@ let rsp = [
   {
     _id: "6288b9ac3d6a655ec5674414",
     ATT_FILE_NO_MK:
-      "http://www.foodsafetykorea.go.kr/uploadimg/cook/10_00009_1.png",
+      "http://www.foodsafetykorea.go.kr/uploadimg/cook/10_00008_1.png",
     RCP_NM: "오색지라시 스시",
+  },
+  {
+    _id: "6288b9ac3d6a655ec5674425",
+    ATT_FILE_NO_MK:
+      "http://www.foodsafetykorea.go.kr/uploadimg/cook/10_00038_1.png",
+    RCP_NM: "표고버섯 청경채국",
+  },
+  {
+    _id: "6288b9ac3d6a655ec5674415",
+    ATT_FILE_NO_MK:
+      "http://www.foodsafetykorea.go.kr/uploadimg/cook/10_00010_1.png",
+    RCP_NM: "두부 곤약 나물 비빔밥",
   },
 ];
 
@@ -92,7 +104,7 @@ app.get("/recipe_view", async function (req, res) {
   console.log(rsp, "gg");
 
   let randomIndexArray = [];
-  for (i = 0; i < 3; i++) {
+  for (i = 0; i < 5; i++) {
     randomNum = Math.floor(Math.random() * (rsp.length - 1));
     if (randomIndexArray.indexOf(randomNum) === -1) {
       randomIndexArray.push(randomNum);
