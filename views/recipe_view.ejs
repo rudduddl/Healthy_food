@@ -91,15 +91,14 @@
              <div class="layout">
                           <article>
                            <div class="card-header" ><sapn style="margin-left:5rem;">이 레시피는 어때요?</sapn></div>
-                               <table class="flexbox">
-                                   <tr>
-                                        <td class="rmd_item"><a href="recipe_view?receipe_id=<%= cautionReceipes[number[0]]._id %>"><img src="<%=cautionReceipes[number[0]].ATT_FILE_NO_MK%>"/><br/><%= cautionReceipes[number[0]].RCP_NM %></a></td>
-                                        <td class="rmd_item"><a href="recipe_view?receipe_id=<%= cautionReceipes[number[1]]._id %>"><img src="<%=cautionReceipes[number[1]].ATT_FILE_NO_MK%>"/><br/><%= cautionReceipes[number[1]].RCP_NM %></a></td>
-                                        <td class="rmd_item"><a href="recipe_view?receipe_id=<%= cautionReceipes[number[2]]._id %>"><img src="<%=cautionReceipes[number[2]].ATT_FILE_NO_MK%>"/><br/><%= cautionReceipes[number[2]].RCP_NM %></a></td>
-
-                                    
-                                    </tr>
-                                </table>
+                               <div class="flexbox">
+                                <div class="item"><a href="recipe_view?receipe_id=<%= cautionReceipes[number[0]]._id %>"><img src="<%=cautionReceipes[number[0]].ATT_FILE_NO_MK%>"/><br/><%= cautionReceipes[number[0]].RCP_NM %></a></div>
+                                <div class="item"><a href="recipe_view?receipe_id=<%= cautionReceipes[number[1]]._id %>"><img src="<%=cautionReceipes[number[1]].ATT_FILE_NO_MK%>"/><br/><%= cautionReceipes[number[1]].RCP_NM %></a></div>
+                                <div class="item"><a href="recipe_view?receipe_id=<%= cautionReceipes[number[2]]._id %>"><img src="<%=cautionReceipes[number[2]].ATT_FILE_NO_MK%>"/><br/><%= cautionReceipes[number[2]].RCP_NM %></a></div>
+                                <div class="item"><a href="recipe_view?receipe_id=<%= cautionReceipes[number[3]]._id %>"><img src="<%=cautionReceipes[number[3]].ATT_FILE_NO_MK%>"/><br/><%= cautionReceipes[number[3]].RCP_NM %></a></div>
+                                <div class="item"><a href="recipe_view?receipe_id=<%= cautionReceipes[number[4]]._id %>"><img src="<%=cautionReceipes[number[4]].ATT_FILE_NO_MK%>"/><br/><%= cautionReceipes[number[4]].RCP_NM %></a></div>
+                                  
+                                <div>
                              </article>
                  </div>
                </section>
