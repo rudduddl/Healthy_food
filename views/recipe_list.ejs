@@ -18,71 +18,70 @@
 
     <div class="all">  
         <br/>
-        <div class="list-header"><%= disease.name %></div>
-        <!--header class="masthead"-->
+    
             <div class="header_con">
-              
-            <!-- 즐겨찾는 레시피 목록
-               <div class="like">        
-                <fieldset>
-                     <legend><br/><h2><strong>홍길동님이 즐겨찾는 레시피입니다.</h2></strong> </legend>
-                      <hr class="divider" />
-                      <div class="layout">
-                      <article>
-                           <div class="flexbox">    
-                                    <div class="item"><a href="recipe_view"><img src="assets/img/ex1.jpg" /><br/>호박죽</a></div>
-                                    <div class="item"><a href="recipe_view"><img src="assets/img/ex2.jpg"/><br/>콩나물 국밥</a></div>    
-                                    <div class="item"><a href="recipe_view"><img src="assets/img/ex3.jpg"/><br/>배중탕</a></div>
-                            <div>
-                            </article>
-                        </div>
-                    </fieldset>
-                </div>-->
-             
-             <!-- 주의음식-->
-              
-               <div class="caution">   
-                
-                    <h2><strong> 주의해야할 음식</h2></strong>
-                     <hr class="divider" />
-                    
-                    <div class="caution_list">
-                        <%= disease.caution %>
-                    </div>
-                    
-                </div>
-            </div>
 
-        <!--/header-->
+               <div class="caution">   
+               
+                    <div class="list-header">
+                    <div class="title_div">선택하신 질병은 </br><span class="d_name"><%= disease.name %></span>입니다.</div>
+                    </div>
+                    <br/>
+                
+                        <h2><strong> 주의해야할 음식</h2></strong>
+                         <hr class="divider" />
+                    
+                        <div class="caution_list">
+                            <%= disease.caution %>
+                        </div>
+                    
+                    </div>
+
+                    <br/>
+            
+
+    
 
            <!-- 검색창-->
-           <hr/>
+           
         <div class="search">
             <form method="get">
                 <input type="text" name="search" style="width:50%">
                 <input type="hidden" name="disease_id" value="<%= disease._id %>" style="width:50%">
-                <button type="submit">검색</button> 
+                <button type="submit" id="search">검색</button> 
             </form>
 	    </div>
        <p/>
+       </div>
 
        <!-- 레시피 결과-->
         <div class="result">
-            <h5 style="text-align:left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;총 <%= cautionReceipes.length %>개의 레시피가 있습니다.</h5>
-           <div class="layout">
-                      <article>
-                           <div class="flexbox">
-                                <% for(const cautionReceipe of cautionReceipes) { %>
-                                    <div class="item"><a href="recipe_view?receipe_id=<%= cautionReceipe._id %>"><img src="<%= cautionReceipe.ATT_FILE_NO_MK %>" /><br/><%= cautionReceipe.RCP_NM %></a></div>
-                                <% } %>
-                            <div>
-                        </article>
-                    </div>
-                    
-                    </div>
-            </div>
-            </div>
             
+            
+           
+            <section class="py-5">
+            
+                <div class="container px-4 px-lg-5 mt-5">
+                 <h5 style="text-align:left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;총 <%= cautionReceipes.length %>개의 레시피가 있습니다.</h5>
+                    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                     <% for(const cautionReceipe of cautionReceipes) { %>
+                        <div class="col mb-5">
+                        <div class="item">
+                            <div class="card h-100">   
+                                <a href="recipe_view?receipe_id=<%= cautionReceipe._id %>">
+                                <img class="card-img-top" src="<%= cautionReceipe.ATT_FILE_NO_MK %>" alt="..." />                         
+                                
+                                <div class="card-body p-4">
+                                    <div class="text-center">                                  
+                                        <class="fw-bolder"><%= cautionReceipe.RCP_NM %></a>       
+                                    </div>
+                                </div>
+                               </div>
+                            </div>
+                        </div>
+                        <% } %>
+                            </div>
+                    </section>
+                    </div>
         </body>
-
     </html>
