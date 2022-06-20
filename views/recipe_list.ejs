@@ -10,35 +10,28 @@
     </head>
 
     <body id="recipe_list">
-
+    
      <%- include("partials/like-list", {favoriteReceipes: favoriteReceipes}) %>
 
 
-</html>
-
     <div class="all">  
-        <br/>
-    
-            <div class="header_con">
-
-               <div class="caution">   
+              
                
                     <div class="list-header">
                     <div class="title_div">선택하신 질환은 </br><span class="d_name"><%= disease.name %></span>입니다.</div>
                     </div>
                     <br/>
-                
+                    
+                  
+                 <div class="caution">   
                         <h2><strong> 주의해야 할 음식</h2></strong>
                          <hr class="divider" />
                     
                         <div class="caution_list">
                             <%= disease.caution %>
                         </div>
-                    
-                    </div>
-
                     <br/>
-            
+             </div>
 
     
 
@@ -53,15 +46,15 @@
 	    </div>
        <p/>
        </div>
+      
 
        <!-- 레시피 결과-->
         <div class="result">
             
             
            
-            <section class="py-5">
-            
-                <div class="container px-4 px-lg-5 mt-5">
+            <section>
+                <div class="rec_list">
                  <h5 style="text-align:left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;총 <%= cautionReceipes.length %>개의 레시피가 있습니다.</h5>
                     <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                      <% for(const cautionReceipe of cautionReceipes) { %>
@@ -82,6 +75,23 @@
                         <% } %>
                             </div>
                     </section>
+                    </div>
+
+        <div class="container" style="padding-bottom:50px;">
+			<div class="row">
+				<div class="col">
+                <ul class="pagination justify-content-center">
+						<li class="page-item disabled" ><a class="page-link" href="#">이전</a></li>
+						<li class="page-item disabled"><a class="page-link" href="#">1</a></li>
+						<li class="page-item disabled"><a class="page-link" href="#">2</a></li>
+						<li class="page-item disabled"><a class="page-link" href="#">3</a></li>
+						<li class="page-item disabled"><a class="page-link" href="#">4</a></li>
+						<li class="page-item disabled"><a class="page-link" href="#">5</a></li>
+						<li class="page-item disabled"><a class="page-link" href="#">다음</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
                     </div>
         </body>
     </html>

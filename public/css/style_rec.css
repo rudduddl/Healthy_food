@@ -4234,7 +4234,7 @@ textarea.form-control-lg {
     margin-bottom: 0;
     list-style: none;
 }
-
+/*
 .nav-link {
     display: block;
     padding: 0.5rem 1rem;
@@ -4251,15 +4251,15 @@ textarea.form-control-lg {
 
 .nav-link:hover, .nav-link:focus {
     color: #c34e2e;
-}
+}*/
 
-.nav-link.disabled {
+/*.nav-link.disabled {
     color: #6c757d;
     pointer-events: none;
     cursor: default;
-}
+}*/
 
-.nav-tabs {
+/*.nav-tabs {
     border-bottom: 1px solid #dee2e6;
 }
 
@@ -4331,7 +4331,7 @@ textarea.form-control-lg {
 
 .tab-content > .active {
     display: block;
-}
+}*/
 
 .navbar {
     position: relative;
@@ -4393,7 +4393,7 @@ textarea.form-control-lg {
     align-items: center;
 }
 
-.navbar-toggler {
+/*.navbar-toggler {
     padding: 0.25rem 0.75rem;
     font-size: 1.25rem;
     line-height: 1;
@@ -4401,9 +4401,9 @@ textarea.form-control-lg {
     border: 1px solid transparent;
     border-radius: 0.25rem;
     transition: box-shadow 0.15s ease-in-out;
-}
+}*/
 
-@media (prefers-reduced-motion: reduce) {
+/*@media (prefers-reduced-motion: reduce) {
     .navbar-toggler {
         transition: none;
     }
@@ -4427,13 +4427,13 @@ textarea.form-control-lg {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100%;
-}
+}*/
 
-.navbar-nav-scroll {
+/*.navbar-nav-scroll {
     max-height: var(--bs-scroll-height, 75vh);
     overflow-y: auto;
-}
-
+}*/
+/*
 @media (min-width: 576px) {
     .navbar-expand-sm {
         flex-wrap: nowrap;
@@ -4560,7 +4560,7 @@ textarea.form-control-lg {
             padding: 0;
             overflow-y: visible;
         }
-}
+}*/
 
 @media (min-width: 992px) {
     .navbar-expand-lg {
@@ -4625,7 +4625,7 @@ textarea.form-control-lg {
             overflow-y: visible;
         }
 }
-
+/*
 @media (min-width: 1200px) {
     .navbar-expand-xl {
         flex-wrap: nowrap;
@@ -4753,7 +4753,7 @@ textarea.form-control-lg {
             overflow-y: visible;
         }
 }
-
+*/
 .navbar-expand {
     flex-wrap: nowrap;
     justify-content: flex-start;
@@ -8082,6 +8082,7 @@ textarea.form-control-lg {
 .px-4 {
     padding-right: 1.5rem !important;
     padding-left: 1.5rem !important;
+    margin-left:30px;
 }
 
 .px-5 {
@@ -8107,6 +8108,7 @@ textarea.form-control-lg {
 .py-3 {
     padding-top: 1rem !important;
     padding-bottom: 1rem !important;
+    
 }
 
 .py-4 {
@@ -10412,6 +10414,7 @@ textarea.form-control-lg {
     .px-lg-5 {
         padding-right: 3rem !important;
         padding-left: 3rem !important;
+        margin-left:30px;
     }
 
     .py-lg-0 {
@@ -11968,6 +11971,7 @@ hr.divider-light {
         font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
         font-weight: 700;
         color: #212529;
+        
     }
 
     #mainNav .navbar-nav .nav-item .nav-link {
@@ -12038,7 +12042,7 @@ hr.divider-light {
 header.masthead {
     padding-top: 5rem;
     padding-bottom: calc(10rem - 4.5rem);
-    background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../assets/img/re.jpg");
+    background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%);
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: scroll;
@@ -12096,6 +12100,7 @@ header.masthead {
             background: rgba(244, 98, 58, 0.9);
             transition: opacity 0.25s ease;
             text-align: center;
+            
         }
 
             #portfolio .container-fluid .portfolio-box .portfolio-box-caption .project-category, #portfolio .container-sm .portfolio-box .portfolio-box-caption .project-category, #portfolio .container-md .portfolio-box .portfolio-box-caption .project-category, #portfolio .container-lg .portfolio-box .portfolio-box-caption .project-category, #portfolio .container-xl .portfolio-box .portfolio-box-caption .project-category, #portfolio .container-xxl .portfolio-box .portfolio-box-caption .project-category {
@@ -12155,6 +12160,9 @@ li {
     padding-top: 5rem;
     text-align: center;
     margin-top: 3rem;
+    background-color:#fff;
+    margin-bottom:30px;
+    margin-top:-30px;
 }
 
 .caution_list {
@@ -12187,7 +12195,7 @@ li {
 }
 
 .search {
-    /*background-color: rgb(181,142,125, 0.4);*/
+    background-color: #fff;
     padding: 10px;
 }
 
@@ -12375,7 +12383,7 @@ img:not(.logo, .all) {
     font-weight: bold;
     letter-spacing: -4px;
     text-align: center;
-    background: /*linear-gradient(to bottom, #ece4d9 0%,#e9dfd1 100%);*/;
+    
     position: absolute;
     padding: 10px 70px;
     top: 30%;
@@ -12392,15 +12400,57 @@ img:not(.logo, .all) {
 .list-header {
     padding: 0.5rem 1rem;
     margin-bottom: 0;
-    background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../assets/img/rec.jpg");
     height: 30rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
     font-weight: bold;
     font-size: 19px;
     color: black;
 }
-#recipe_list {
-    background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../assets/img/re.jpg");
+
+.list-header {
+    background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../assets/img/rec.jpg");
+    height: 700px;
+    margin-bottom: -40px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.rec_list {
+    width: 100%;
+    padding-right: var(--bs-gutter-x, 0.75rem);
+    padding-left: var(--bs-gutter-x, 0.75rem);
+    margin-right: auto;
+    margin-left: auto;
+   
+}
+
+@media (min-width: 576px) {
+    .rec_list {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .rec_list {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .rec_list {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .rec_list {
+        max-width: 1140px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .rec_list {
+        max-width: 1320px;
+    }
 }
 
 
