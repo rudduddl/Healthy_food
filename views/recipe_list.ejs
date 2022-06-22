@@ -41,6 +41,7 @@
             <form method="get">
                 <input type="text" name="search" style="width:50%">
                 <input type="hidden" name="disease_id" value="<%= disease._id %>" style="width:50%">
+                <input type="hidden" name="startIndex" value=0 style="width:50%">
                 <button type="submit" id="search">검색</button> 
             </form>
 	    </div>
@@ -57,6 +58,7 @@
                 <div class="rec_list">
                  <h5 style="text-align:left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;총 <%= totalCount %>개의 레시피가 있습니다.</h5>
                     <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                     <% if (typeof(cautionReceipes) == 'undefined') cautionReceipes = [] %>
                      <% for(const cautionReceipe of cautionReceipes) { %>
                         <div class="col mb-5">
                         <div class="item">
@@ -83,7 +85,6 @@
                     <ul class="pagination justify-content-center">
                         <% if (typeof(startIndex) == 'undefined') startIndex = 0 %>
                         <% let currentPageNum = parseInt(startIndex / 20) + 1 %>
-                        <% console.log(currentPageNum); %>
                         <% const currentSartPageNum = parseInt((currentPageNum - 1) / 5) * 5 + 1 %>
 
                         <% if (currentPageNum > 5) { %>

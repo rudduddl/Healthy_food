@@ -153,7 +153,7 @@ async function getCautionReceipe(caution, keyword, start) {
     const query = { $and: option };
     if (keyword) query.$text = { $search: keyword };
 
-    const receipe = await db
+    let receipe = await db
       .collection("receipe")
       .find(query, { projection: { RCP_NM: 1, ATT_FILE_NO_MK: 1 } })
       .skip(start)
@@ -168,7 +168,10 @@ async function getCautionReceipe(caution, keyword, start) {
         $count: "total",
       },
     ]);
-    const receipeTotalCnt = (await cursor.toArray())[0].total;
+    let receipeTotalCnt = 0;
+    try {
+      receipeTotalCnt = (await cursor.toArray())[0].total;
+    } catch (e) {}
     return { receipe: receipe, totalCount: receipeTotalCnt };
   } catch (e) {
     console.error(e);
