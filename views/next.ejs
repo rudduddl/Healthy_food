@@ -116,7 +116,7 @@
                   <% filtered.forEach(function(item){ %>
                   <tr>
                   
-                    <td><a href="recipe_list?disease_id=<%= item._id %>"><%= item.name %></th>
+                    <td><a href="recipe_list?disease_id=<%= item._id %>&startIndex=0"><%= item.name %></th>
                   </tr>
                   <% }); %>
               </tbody>

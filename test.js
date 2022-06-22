@@ -1,12 +1,6 @@
-// const arr1 = ["가공식품", "육류", "돼지"];
-// const filterd = arr1.filter(
-//   (element) => element.includes("식품") || element.includes("류")
-// );
-// console.log(filterd);
+const startIndex = 100;
+const currentPageNum = parseInt(startIndex / 20) + 1;
 
-const db = require("./src/mongodb");
+console.log(currentPageNum);
 
-setTimeout(async () => {
-  const result = await db.getCautionReceipe("해조류, 어패류");
-  console.log(result);
-}, 2000);
+//0 20 40 60 80 | 100 120 140 160 180 | 200 220 240 260 280 |

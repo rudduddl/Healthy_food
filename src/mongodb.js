@@ -1,11 +1,5 @@
-const {
-  MongoClient,
-  ServerApiVersion,
-  MongoGridFSChunkError,
-  ObjectId,
-} = require("mongodb");
+const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const bcrypt = require("bcrypt");
-const { get } = require("express/lib/response");
 
 const uri =
   "mongodb+srv://admin:admin@cluster0.qpfrt.mongodb.net/Cluster0?retryWrites=true&w=majority";
@@ -125,7 +119,7 @@ async function getReceipe(receipeId) {
 }
 module.exports.getReceipe = getReceipe;
 
-async function getCautionReceipe(caution, keyword) {
+async function getCautionReceipe(caution, keyword, start) {
   function regExp(str) {
     var reg = /[\{\}\[\]\/?.;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi;
     if (reg.test(str)) {
@@ -162,9 +156,20 @@ async function getCautionReceipe(caution, keyword) {
     const receipe = await db
       .collection("receipe")
       .find(query, { projection: { RCP_NM: 1, ATT_FILE_NO_MK: 1 } })
+      .skip(start)
       .limit(20)
       .toArray();
-    return receipe;
+
+    const cursor = db.collection("receipe").aggregate([
+      {
+        $match: query,
+      },
+      {
+        $count: "total",
+      },
+    ]);
+    const receipeTotalCnt = (await cursor.toArray())[0].total;
+    return { receipe: receipe, totalCount: receipeTotalCnt };
   } catch (e) {
     console.error(e);
     return [];

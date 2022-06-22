@@ -3,25 +3,25 @@ const router = express.Router();
 const receipeApi = require("../src/json_receipe");
 const db = require("../src/mongodb");
 
-router.get("/", (req, res) => {
-  res.render("receipe_search");
-});
+// router.get("/", (req, res) => {
+//   res.render("receipe_search");
+// });
 
-router.post("/", async (req, res) => {
-  const search = req.body.name;
+// router.post("/", async (req, res) => {
+//   const search = req.body.name;
 
-  const receipes = await db.searchReceipe(search);
-  res.render("receipe_search", { receipes: receipes });
-});
+//   const receipes = await db.searchReceipe(search);
+//   res.render("receipe_search", { receipes: receipes });
+// });
 
-router.post("/how", async (req, res) => {
-  const receipeName = req.body.name;
+// router.post("/how", async (req, res) => {
+//   const receipeName = req.body.name;
 
-  const receipe = await db.getReceipe(receipeName);
-  res.render("receipe", {
-    receipe: receipe,
-  });
-});
+//   const receipe = await db.getReceipe(receipeName);
+//   res.render("receipe", {
+//     receipe: receipe,
+//   });
+// });
 
 router.post("/favorite", async (req, res) => {
   const receipeName = req.body.name;

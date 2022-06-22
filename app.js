@@ -82,15 +82,18 @@ app.get("/recipe_list", async function (req, res) {
     favoriteReceipes = await mongodb.getFavoriteReceipe(req.session.user.id);
   }
   const disease = await mongodb.getDisease(req.query.disease_id);
-  const cautionReceipes = await mongodb.getCautionReceipe(
+  const result = await mongodb.getCautionReceipe(
     disease.caution,
-    req.query.search
+    req.query.search,
+    Number(req.query.startIndex)
   );
-  rsp = cautionReceipes;
+  rsp = result.receipe;
   res.render("recipe_list", {
+    startIndex: Number(req.query.startIndex),
     favoriteReceipes: favoriteReceipes,
     disease: disease,
-    cautionReceipes: cautionReceipes,
+    cautionReceipes: result.receipe,
+    totalCount: result.totalCount,
   });
 });
 
