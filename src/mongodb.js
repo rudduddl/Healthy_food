@@ -36,7 +36,8 @@ async function login(id, password) {
       return undefined;
     }
   } catch (e) {
-    console.log(e);
+    console.error("login error");
+    console.error(e);
     return undefined;
   }
 }
@@ -55,6 +56,7 @@ async function signup(signupObj) {
     await db.collection("user").insertOne(signupObj);
     return "SUCCESS";
   } catch (e) {
+    console.error("signup error");
     console.error(e);
     return "ERR";
   }
@@ -68,6 +70,7 @@ async function getDisease(id) {
       .findOne({ _id: ObjectId(id) });
     return disease;
   } catch (e) {
+    console.error("getDisease error");
     console.error(e);
   }
 }
@@ -86,6 +89,7 @@ async function searchDisease(keyword) {
 
     return disease;
   } catch (e) {
+    console.error("searchDisease error");
     console.error(e);
     return [];
   }
@@ -100,6 +104,7 @@ async function searchReceipe(keyword) {
       .toArray();
     return receipe;
   } catch (e) {
+    console.error("searchReceipe error");
     console.error(e);
     return [];
   }
@@ -113,6 +118,7 @@ async function getReceipe(receipeId) {
       .findOne({ _id: ObjectId(receipeId) });
     return receipe;
   } catch (e) {
+    console.error("getReceipe error");
     console.error(e);
     return undefined;
   }
@@ -133,15 +139,20 @@ async function getCautionReceipe(caution, keyword, start) {
     caution = regExp(caution);
     let split = caution.replace(" ", "").split(",");
 
-    const filtered = split.filter(
-      (element) => element.includes("식품") || element.includes("류")
+    const filtered = split.filter((element) =>
+      /*element.includes("식품") ||*/ element.includes("류")
     );
     for (const element of filtered) {
       const result = await db
         .collection("foodClass")
         .findOne({ class: element });
+
+      const reg = [];
       if (result) {
-        split = split.concat(result.value);
+        for (let v of result.value) {
+          reg.push(regExp(v));
+        }
+        split = split.concat(reg);
       }
     }
 
@@ -174,6 +185,7 @@ async function getCautionReceipe(caution, keyword, start) {
     } catch (e) {}
     return { receipe: receipe, totalCount: receipeTotalCnt };
   } catch (e) {
+    console.error("getCautionReceipe error");
     console.error(e);
     return [];
   }
@@ -188,6 +200,8 @@ async function favoriteReciepe(user, receipeName) {
     });
     return true;
   } catch (e) {
+    console.error("favoriteReciepe error");
+    console.error(e);
     return false;
   }
 }
@@ -214,6 +228,7 @@ async function getFavoriteReceipe(userId) {
 
     return result;
   } catch (e) {
+    console.error("getFavoriteReceipe error");
     console.error(e);
   }
 }
